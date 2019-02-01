@@ -12,5 +12,10 @@ namespace Hackerman_WebbApp.Controllers
         {
             return View();
         }
+
+        public IActionResult Gameboard()
+        {
+            return View();
+        }
     }
 }

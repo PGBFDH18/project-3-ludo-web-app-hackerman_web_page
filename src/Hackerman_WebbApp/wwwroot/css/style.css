@@ -126,18 +126,19 @@ html{
     top:360px;
     left:0px;
   }
-  
-  #rightWing{
-    top:360px;
-    left:540px;
-    transform: rotate(180deg);
-  }
-  
-  #topWing{
-    top:90px;
-    left:270px;   
+
+#topWing {
+    
+    top: 90px;
+    left: 270px;
     transform: rotate(90deg);
-  }
+}
+
+#rightWing {
+    top: 360px;
+    left: 540px;
+    transform: rotate(180deg);
+}
   
   #bottomWing{
     top:630px;
