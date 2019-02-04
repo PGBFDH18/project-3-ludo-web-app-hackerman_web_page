@@ -10,14 +10,10 @@ namespace Hackerman_WebbApp.Models
         private int GameId { get; set; }
         public List<Player> PlayerList { get; set; }
 
-        public void SetGameId(int gameId)
-        {
-            GameId = gameId;
-        }
+        public void SetGameId(int gameId) => this.GameId = gameId;
 
-        public int GetGameId()
-        {
-            return GameId;
-        }
+        public int GetGameId() => this.GameId;
+
+        public void AddPlayer(Player player) => this.PlayerList.Add(player);
     }
 }

@@ -6,5 +6,6 @@ namespace Hackerman_WebbApp.Models
     {
         void SetGameId(int gameId);
         int GetGameId();
+        void AddPlayer(Player player);
     }
 }
