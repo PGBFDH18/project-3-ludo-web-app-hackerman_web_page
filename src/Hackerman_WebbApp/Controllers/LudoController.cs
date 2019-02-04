@@ -8,7 +8,6 @@ using RestSharp;
 namespace Hackerman_WebbApp.Controllers
 {
 
-    [Route("Ludo")]
     public class LudoController : Controller
     {
         public IActionResult Index()
@@ -25,11 +24,11 @@ namespace Hackerman_WebbApp.Controllers
             var restResponse = await client.ExecuteTaskAsync(response);
             var output = restResponse.Content;
 
-            return View();
+            return View(Gameboard(output));
         }
         
         [HttpGet("gameboard")]
-        public IActionResult Gameboard()
+        public IActionResult Gameboard(string gameId)
         {
             return View();
         }
