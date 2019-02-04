@@ -32,10 +32,12 @@ namespace Hackerman_WebbApp.Controllers
 
 
         }
-
+        
+        [Route("gameboard")]
         public IActionResult Gameboard()
         {
             return View();
         }
+        
     }
 }
