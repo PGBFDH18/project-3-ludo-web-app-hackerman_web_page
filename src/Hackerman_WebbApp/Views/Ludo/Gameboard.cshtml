@@ -2,170 +2,166 @@
 @{
     ViewData["Title"] = "Gameboard";
 }
-<html>
-<head>
-    <link href="reset.css" rel="stylesheet" />
-    <link href="LudoStyle.css" rel="stylesheet" />
-</head>
-<body>
-    <div></div>
-    <div class="gameInfo">
 
-        <div class="currentPlayer">player1</div>
-        <div class="dice">
-            <div class="diceDot" id="center"></div>
-            <div class="diceDot" id="leftUpper"></div>
-            <div class="diceDot" id="leftMiddel"></div>
-            <div class="diceDot" id="leftLower"></div>
-            <div class="diceDot" id="rightUpper"></div>
-            <div class="diceDot" id="rightMiddel"></div>
-            <div class="diceDot" id="rightLower"></div>
-        </div>
+<div class="gameInfo">
+
+<div class="currentPlayer">player1</div>
+<div class="dice">
+    <div class="diceDot" id="center"></div>
+    <div class="diceDot" id="leftUpper"></div>
+    <div class="diceDot" id="leftMiddle"></div>
+    <div class="diceDot" id="leftLower"></div>
+    <div class="diceDot" id="rightUpper"></div>
+    <div class="diceDot" id="rightMiddle"></div>
+    <div class="diceDot" id="rightLower"></div>
+</div>
+<div>
+    <a class="buttonTest" href="#" onclick="MovePiece(); return false" >Click test to move piece></a>
+
+        <input id="dicevalue" type="text" placeholder="number" />
+        <a class="buttonDice" href="#" onclick="DiceThrow(); return false">Click to update dice</a>
+</div>
+
+</div>
+<div class="board">
+<div class="wing" id="leftWing">
+    <div class="field" id="tile14"></div>
+    <div class="field" id="tile15"></div>
+    <div class="field" id="tile16"></div>
+    <div class="field" id="tile17"></div>
+    <div class="field" id="tile18"></div>
+    <div class="field" id="tile19"></div>
+    <div class="field player2" id="tile13"></div>
+    <div class="field player2" id="g1"></div>
+    <div class="field player2" id="g2"></div>
+    <div class="field player2" id="g3"></div>
+    <div class="field player2" id="g4"></div>
+    <div class="field player2" id="g5"></div>
+    <div class="field" id="tile12"></div>
+    <div class="field" id="tile11"></div>
+    <div class="field" id="tile10"></div>
+    <div class="field" id="tile9"></div>
+    <div class="field" id="tile8"></div>
+    <div class="field" id="tile7"></div>
+</div>
+<div class="wing" id="topWing">
+    <div class="field" id="tile27"></div>
+    <div class="field" id="tile28"></div>
+    <div class="field" id="tile29"></div>
+    <div class="field" id="tile30"></div>
+    <div class="field" id="tile31"></div>
+    <div class="field" id="tile32"></div>
+    <div class="field player4" id="tile26"></div>
+    <div class="field player4" id="b1"></div>
+    <div class="field player4" id="b2"></div>
+    <div class="field player4" id="b3"></div>
+    <div class="field player4" id="b4"></div>
+    <div class="field player4" id="b5"></div>
+    <div class="field" id="tile25"></div>
+    <div class="field" id="tile24"></div>
+    <div class="field" id="tile23"></div>
+    <div class="field" id="tile22"></div>
+    <div class="field" id="tile21"></div>
+    <div class="field" id="tile20"></div>
+</div>
+<div class="wing" id="rightWing">
+    <div class="field" id="tile40"></div>
+    <div class="field" id="tile41"></div>
+    <div class="field" id="tile42"></div>
+    <div class="field" id="tile43"></div>
+    <div class="field" id="tile44"></div>
+    <div class="field" id="tile45"></div>
+    <div class="field player3" id="tile39"></div>
+    <div class="field player3" id="gu1"></div>
+    <div class="field player3" id="gu2"></div>
+    <div class="field player3" id="gu3"></div>
+    <div class="field player3" id="gu4"></div>
+    <div class="field player3" id="gu5"></div>
+    <div class="field" id="tile38"></div>
+    <div class="field" id="tile37"></div>
+    <div class="field" id="tile36"></div>
+    <div class="field" id="tile35"></div>
+    <div class="field" id="tile34"></div>
+    <div class="field" id="tile33"></div>
+</div>
+<div class="wing" id="bottomWing">
+    <div class="field" id="tile1"></div>
+    <div class="field" id="tile2"></div>
+    <div class="field" id="tile3"></div>
+    <div class="field" id="tile4"></div>
+    <div class="field" id="tile5"></div>
+    <div class="field" id="tile6"></div>
+    <div class="field player1" id="tile52"></div>
+    <div class="field player1" id="r1"></div>
+    <div class="field player1" id="r2"></div>
+    <div class="field player1" id="r3"></div>
+    <div class="field player1" id="r4"></div>
+    <div class="field player1" id="r5"></div>
+    <div class="field" id="tile51"></div>
+    <div class="field" id="tile50"></div>
+    <div class="field" id="tile49"></div>
+    <div class="field" id="tile48"></div>
+    <div class="field" id="tile47"></div>
+    <div class="field" id="tile46"></div>
+</div>
+
+<div class="goal"></div>
+<div class="start player1">
+
+    <div class="field">
+        <div class="brick player1" id="piece1"></div>
     </div>
-    <div class="board">
-        <div class="wing" id="leftWing">
-            <div class="field" id="tile1"></div>
-            <div class="field player2" id="tile2"></div>
-            <div class="field" id="tile3"></div>
-            <div class="field" id="tile4"></div>
-            <div class="field" id="tile5"></div>
-            <div class="field" id="tile6"></div>
-            <div class="field" id="tile7"></div>
-            <div class="field player2" id="tile8"></div>
-            <div class="field player2" id="tile9"></div>
-            <div class="field player2" id="tile10"></div>
-            <div class="field player2" id="tile11"></div>
-            <div class="field player2" id="tile12"></div>
-            <div class="field" id="tile13"></div>
-            <div class="field" id="tile14"></div>
-            <div class="field" id="tile15"></div>
-            <div class="field" id="tile16"></div>
-            <div class="field" id="tile17"></div>
-            <div class="field" id="tile18"></div>
-        </div>
-        <div class="wing" id="topWing">
-            <div class="field" id="tile1"></div>
-            <div class="field player4" id="tile2"></div>
-            <div class="field" id="tile3"></div>
-            <div class="field" id="tile4"></div>
-            <div class="field" id="tile5"></div>
-            <div class="field" id="tile6"></div>
-            <div class="field" id="tile7"></div>
-            <div class="field player4" id="tile8"></div>
-            <div class="field player4" id="tile9"></div>
-            <div class="field player4" id="tile10"></div>
-            <div class="field player4" id="tile11"></div>
-            <div class="field player4" id="tile12"></div>
-            <div class="field" id="tile13"></div>
-            <div class="field" id="tile14"></div>
-            <div class="field" id="tile15"></div>
-            <div class="field" id="tile16"></div>
-            <div class="field" id="tile17"></div>
-            <div class="field" id="tile18"></div>
-        </div>
-        <div class="wing" id="rightWing">
-            <div class="field" id="tile1"></div>
-            <div class="field player3" id="tile2"></div>
-            <div class="field" id="tile3"></div>
-            <div class="field" id="tile4"></div>
-            <div class="field" id="tile5"></div>
-            <div class="field" id="tile6"></div>
-            <div class="field" id="tile7"></div>
-            <div class="field player3" id="tile8"></div>
-            <div class="field player3" id="tile9"></div>
-            <div class="field player3" id="tile10"></div>
-            <div class="field player3" id="tile11"></div>
-            <div class="field player3" id="tile12"></div>
-            <div class="field" id="tile13"></div>
-            <div class="field" id="tile14"></div>
-            <div class="field" id="tile15"></div>
-            <div class="field" id="tile16"></div>
-            <div class="field" id="tile17"></div>
-            <div class="field" id="tile18"></div>
-        </div>
-        <div class="wing" id="bottomWing">
-            <div class="field" id="tile1"></div>
-            <div class="field player1" id="tile2"></div>
-            <div class="field" id="tile3"></div>
-            <div class="field" id="tile4"></div>
-            <div class="field" id="tile5"></div>
-            <div class="field" id="tile6"></div>
-            <div class="field" id="tile7"></div>
-            <div class="field player1" id="tile8"></div>
-            <div class="field player1" id="tile9"></div>
-            <div class="field player1" id="tile10"></div>
-            <div class="field player1" id="tile11"></div>
-            <div class="field player1" id="tile12"></div>
-            <div class="field" id="tile13"></div>
-            <div class="field" id="tile14"></div>
-            <div class="field" id="tile15"></div>
-            <div class="field" id="tile16"></div>
-            <div class="field" id="tile17"></div>
-            <div class="field" id="tile18"></div>
-        </div>
-
-        <div class="goal"></div>
-        <div class="start player1">
-
-            <div class="field">
-                <div class="brick player1"></div>
-            </div>
-            <div class="field">
-                <div class="brick player1"></div>
-            </div>
-            <div class="field">
-                <div class="brick player1"></div>
-            </div>
-            <div class="field">
-                <div class="brick player1"></div>
-            </div>
-        </div>
-
-        <div class="start player2">
-            <div class="field">
-                <div class="brick player2"></div>
-            </div>
-            <div class="field">
-                <div class="brick player2"></div>
-            </div>
-            <div class="field">
-                <div class="brick player2"></div>
-            </div>
-            <div class="field">
-                <div class="brick player2"></div>
-            </div>
-        </div>
-        <div class="start player3">
-            <div class="field">
-                <div class="brick player3"></div>
-            </div>
-            <div class="field">
-                <div class="brick player3"></div>
-            </div>
-            <div class="field">
-                <div class="brick player3"></div>
-            </div>
-            <div class="field">
-                <div class="brick player3"></div>
-            </div>
-        </div>
-        <div class="start player4">
-            <div class="field">
-                <div class="brick player4"></div>
-            </div>
-            <div class="field">
-                <div class="brick player4"></div>
-            </div>
-            <div class="field">
-                <div class="brick player4"></div>
-            </div>
-            <div class="field">
-                <div class="brick player4"></div>
-            </div>
-        </div>
+    <div class="field">
+        <div class="brick player1" id="piece2"></div>
     </div>
+    <div class="field">
+        <div class="brick player1" id="piece3"></div>
+    </div>
+    <div class="field">
+        <div class="brick player1" id="piece4"></div>
+    </div>
+</div>
 
-
-</body>
-</html>
-
+<div class="start player2">
+    <div class="field" id="p2piece1" onclick="MovePiece()">
+        <div class="brick player2" id="piece1"></div>
+    </div>
+    <div class="field">
+        <div class="brick player2" id="piece2"></div>
+    </div>
+    <div class="field">
+        <div class="brick player2" id="piece3"></div>
+    </div>
+    <div class="field">
+        <div class="brick player2" id="piece4"></div>
+    </div>
+</div>
+<div class="start player3">
+    <div class="field">
+        <div class="brick player3" id="piece1"></div>
+    </div>
+    <div class="field">
+        <div class="brick player3" id="piece2"></div>
+    </div>
+    <div class="field">
+        <div class="brick player3" id="piece3"></div>
+    </div>
+    <div class="field">
+        <div class="brick player3" id="piece4"></div>
+    </div>
+</div>
+<div class="start player4">
+    <div class="field">
+        <div class="brick player4" id="piece1"></div>
+    </div>
+    <div class="field">
+        <div class="brick player4" id="piece2"></div>
+    </div>
+    <div class="field">
+        <div class="brick player4" id="piece3"></div>
+    </div>
+    <div class="field">
+        <div class="brick player4" id="piece4"></div>
+    </div>
+</div>
+</div>

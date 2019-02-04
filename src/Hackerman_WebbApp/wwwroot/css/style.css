@@ -30,32 +30,39 @@ html{
   .diceDot#center{
     top:23px;
     left:23px;
+    display: none;
   }
-  
-  .diceDot#leftUpper{
-    top:3px;
-    left:5px;
-  }
-  .diceDot#leftMiddel{
-    top:23px;
-    left:5px;
-  }
-  .diceDot#leftLower{
-    top:43px;
-    left:5px;
-  }
-  .diceDot#rightUpper{
-    top:3px;
-    left:41px;
-  }
-  .diceDot#rightMiddel{
-    top:23px;
-    left:41px;
-  }
-  .diceDot#rightLower{
-    top:43px;
-    left:41px;
-  }
+
+.diceDot#leftUpper {
+    top: 3px;
+    left: 5px;
+    display: none;
+}
+.diceDot#leftMiddle {
+    top: 23px;
+    left: 5px;
+    display: none;
+}
+.diceDot#leftLower {
+    top: 43px;
+    left: 5px;
+    display: none;
+}
+.diceDot#rightUpper {
+    top: 3px;
+    left: 41px;
+    display: none;
+}
+.diceDot#rightMiddle {
+    top: 23px;
+    left: 41px;
+    display: none;
+}
+.diceDot#rightLower {
+    top: 43px;
+    left: 41px;
+    display: none;
+}
   
   .gameInfo{
     width:100px;
