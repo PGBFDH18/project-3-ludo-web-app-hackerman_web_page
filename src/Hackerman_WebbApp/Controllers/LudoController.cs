@@ -16,24 +16,19 @@ namespace Hackerman_WebbApp.Controllers
             return View();
         }
 
-        [HttpPost("/newgame")]
+        [HttpPost("newgame")]
         public async Task<IActionResult> NewGame()
         {
             var client = new RestClient("http://localhost:57659/");
 
-            var response = client.Execute(new RestRequest("/newgame", Method.POST));
-            
-            //IRestResponse<int> createGameResponse = client.Execute<int>(request);
-
-            var output = response.Content;
+            var response = new RestRequest("api/ludo", Method.POST);
+            var restResponse = await client.ExecuteTaskAsync(response);
+            var output = restResponse.Content;
 
             return View();
-
-
-
         }
         
-        [Route("gameboard")]
+        [HttpGet("gameboard")]
         public IActionResult Gameboard()
         {
             return View();
