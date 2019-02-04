@@ -11,9 +11,9 @@ namespace Hackerman_WebbApp.Controllers
 
     public class LudoController : Controller
     {
-        private readonly GameModel game;
+        private IGameModel game;
 
-        public LudoController(GameModel _game)
+        public LudoController(IGameModel _game)
         {
             game = _game;
         }
@@ -31,7 +31,7 @@ namespace Hackerman_WebbApp.Controllers
             var response = new RestRequest("api/ludo", Method.POST);
             var restResponse = await client.ExecuteTaskAsync(response);
             var output = restResponse.Content;
-            game.GameId = int.Parse(output);
+            game.SetGameId(int.Parse(output));
 
             return View(game);
         }
