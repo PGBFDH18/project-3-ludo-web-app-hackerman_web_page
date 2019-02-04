@@ -16,16 +16,16 @@ namespace Hackerman_WebbApp.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("/newgame")]
         public async Task<IActionResult> NewGame()
         {
             var client = new RestClient("http://localhost:57659/");
 
-            var request = new RestRequest("/newgame", Method.POST);
+            var response = client.Execute(new RestRequest("/newgame", Method.POST));
             
-            IRestResponse<int> createGameResponse = client.Execute<int>(request);
+            //IRestResponse<int> createGameResponse = client.Execute<int>(request);
 
-            var output = createGameResponse.Content;
+            var output = response.Content;
 
             return View();
 
