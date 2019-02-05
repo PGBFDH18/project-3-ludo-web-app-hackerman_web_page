@@ -7,15 +7,6 @@ namespace Hackerman_WebbApp.Models
 {
     public class GameList
     {
-        private static int[] ListOfAllGames { get; set; }
-
-        public static void SetGameList(int[] list)
-        {
-            ListOfAllGames = list;
-        }
-        public static int[] GetGameList()
-        {
-            return ListOfAllGames;
-        }
+        public int[] ListOfAllGames { get; set; }
     }
 }
