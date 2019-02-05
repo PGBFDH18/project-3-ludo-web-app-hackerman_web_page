@@ -8,10 +8,6 @@ namespace Hackerman_WebbApp.Models
     public class GameModel 
     {
         public int GameId { get; set; }
-
-        public GameModel(int id)
-        {
-            GameId = id;
-        }
+        
     }
 }
