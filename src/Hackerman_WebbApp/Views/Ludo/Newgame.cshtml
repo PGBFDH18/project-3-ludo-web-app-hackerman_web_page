@@ -1,4 +1,4 @@
-﻿@model Hackerman_WebbApp.Models.GameModel
+﻿@model Hackerman_WebbApp.Models.Player
 @{
     ViewData["Title"] = "Newgame";
 }
@@ -6,64 +6,43 @@
 
 <h1 class="latoFont">Create a new game</h1>
 
-<h2 class="latoFont">Gameid: @Model.GetGameId()</h2>
+<div id"numberOfPlayerOption">
+    <h3 class="latoFont">Choose amount of players:</h3>
+    <select id="playerAmount" onchange="changingInputs(this.value)">
+        <option value="" selected disabled hidden>Choose here</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+</div>
 
 
-<h3 class="latoFont">Choose amount of players:</h3>
-<select id="playerAmount" onchange="changingSelect()">
-    <option value="" selected disabled hidden>Choose here</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-</select>
+<form action="addplayer" method="post" id="addPlayerForm">
+    <div id="players">
 
-
-<form action="/gameboard">
-
-
-    <div id="player1NewGame" class="playersInput">
-        <h4 class="latoFont">Player 1</h4>
-        <input type="text" name="1" placeholder="player name"><br>
-        <select name="p1_color">
-            <option selected="selected" value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="yellow">Yellow</option>
-        </select>
     </div>
+    <script>
+        function changingInputs(val) {
 
-    <div id="player2NewGame" class="playersInput">
-        <h4 class="latoFont">Player 2</h4>
-        <input type="text" name="2" placeholder="player name"><br>
-        <select name="p2_color">
-            <option value="red">Red</option>
-            <option selected="selected" value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="yellow">Yellow</option>
-        </select>
-    </div>
+            //var t = document.getElementById("playerAmount");
+            //var finalValue = t.options[t.selectedIndex].value;
 
-    <div id="player3NewGame">
-        <h4 class="latoFont">Player 3</h4>
-        <input type="text" name="3" placeholder="player name"><br>
-        <select name="p3_color">
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option selected="selected" value="green">Green</option>
-            <option value="yellow">Yellow</option>
-        </select>
-    </div>
+            for (var i = 1; i <= val; i++) {
+                var h4 = "<h4>Player " + i + " </h4>"
+                var id = "<input type='hidden' asp-for='Id' value='" + i + "' />"
+                var input = "<input asp-for='Name' type='text' placeholder='Player name' />"
+                var select = "<select asp-for='Color'><option value='red'>Red</option><option value='blue'>Blue</option><option value='green'>Green</option><option value='yellow'>Yellow</option></select>"
+                var removeButton = "<i class='fas fa-times-circle' style='color: black'</i>"
+                $("#players").append(h4, input, select, removeButton)
+            }
+            removeOptions();
+        }
 
-    <div id="player4NewGame">
-        <h4 class="latoFont">Player 4</h4>
-        <input type="text" name="4" placeholder="player name"><br>
-        <select name="p4_color">
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option selected="selected" value="yellow">Yellow</option>
-        </select>
-    </div>
+        function removeOptions() {
+            
+        }
+    </script>
+ 
 
     <div>
         <input class="button" type="submit" value="Submit players" />

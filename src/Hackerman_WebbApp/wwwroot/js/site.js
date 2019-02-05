@@ -63,30 +63,11 @@ function DiceThrow() {
 
     }
 }
-
+/*
 function changingSelect() {
 
     var t = document.getElementById("playerAmount");
     var finalValue = t.options[t.selectedIndex].value;
 
-
-    if (finalValue == 2) {
-        document.getElementById("player1NewGame").style.display = "inline";
-        document.getElementById("player2NewGame").style.display = "inline";
-        document.getElementById("player3NewGame").style.display = "none";
-        document.getElementById("player4NewGame").style.display = "none";
-    }
-    else if (finalValue == 3) {
-        document.getElementById("player1NewGame").style.display = "inline";
-        document.getElementById("player2NewGame").style.display = "inline";
-        document.getElementById("player3NewGame").style.display = "inline";
-        document.getElementById("player4NewGame").style.display = "none";
-    }
-    else if (finalValue == 4) {
-        document.getElementById("player1NewGame").style.display = "inline";
-        document.getElementById("player2NewGame").style.display = "inline";
-        document.getElementById("player3NewGame").style.display = "inline";
-        document.getElementById("player4NewGame").style.display = "inline";
-    }
-
 }
+*/
