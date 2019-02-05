@@ -57,6 +57,9 @@ body {
 
 #player1NewGame, #player2NewGame, #player3NewGame, #player4NewGame {
     display: none;
+    transition: width 2s, height 4s;
+    -webkit-transition: width 2s, height 4s;
+
 }
 
 .button {
@@ -79,4 +82,8 @@ input[type=text], select, textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
+}
+
+.latoFont {
+    font-family: 'Lato', sans-serif;
 }

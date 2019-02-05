@@ -73,13 +73,16 @@ function changingSelect() {
     if (finalValue == 2) {
         document.getElementById("player1NewGame").style.display = "inline";
         document.getElementById("player2NewGame").style.display = "inline";
+        document.getElementById("player3NewGame").style.display = "none";
+        document.getElementById("player4NewGame").style.display = "none";
     }
     else if (finalValue == 3) {
         document.getElementById("player1NewGame").style.display = "inline";
         document.getElementById("player2NewGame").style.display = "inline";
         document.getElementById("player3NewGame").style.display = "inline";
+        document.getElementById("player4NewGame").style.display = "none";
     }
-    else if (finalValue.value == 4) {
+    else if (finalValue == 4) {
         document.getElementById("player1NewGame").style.display = "inline";
         document.getElementById("player2NewGame").style.display = "inline";
         document.getElementById("player3NewGame").style.display = "inline";

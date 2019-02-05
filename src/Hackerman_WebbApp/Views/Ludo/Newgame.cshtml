@@ -3,12 +3,12 @@
 }
 
 
-<h1>Create a new game</h1>
+<h1 class="latoFont">Create a new game</h1>
 
-<h2>Gameid: @Output</h2>
+<h2 class="latoFont">Gameid: 3257</h2>
 
 
-Choose amount of players<br>
+<h3 class="latoFont">Choose amount of players:</h3>
 <select id="playerAmount" onchange="changingSelect()">
     <option value="" selected disabled hidden>Choose here</option>
     <option value="2">2</option>
@@ -20,49 +20,45 @@ Choose amount of players<br>
 
 
 <div id="player1NewGame" class="playersInput">
-    Player 1 name:<br>
-    <input type="text" name="player1" value="enter name"><br>
-    <select>
-        <option value="red">Red</option>
+    <h4 class="latoFont">Player 1</h4>
+    <input type="text" name="player1" placeholder="player name"><br>
+    <select name="player1Color">
+        <option selected="selected" value="red">Red</option>
         <option value="blue">Blue</option>
         <option value="green">Green</option>
         <option value="yellow">Yellow</option>
     </select>
-    <input type="submit" value="Submit">
 </div>
 
 <div id="player2NewGame" class="playersInput">
-    Player 2 name:<br>
-    <input type="text" name="player2" value="enter name"><br>
-    <select>
+    <h4 class="latoFont">Player 2</h4>
+    <input type="text" name="player2" placeholder="player name"><br>
+    <select name="player2Color">
         <option value="red">Red</option>
-        <option value="blue">Blue</option>
+        <option selected="selected" value="blue">Blue</option>
         <option value="green">Green</option>
         <option value="yellow">Yellow</option>
     </select>
-    <input type="submit" value="Submit">
 </div>
 
 <div id="player3NewGame">
-    Player 3 name:<br>
-    <input type="text" name="player3" value="enter name"><br>
-    <select>
+    <h4 class="latoFont">Player 3</h4>
+    <input type="text" name="player3" placeholder="player name"><br>
+    <select name="player3Color">
         <option value="red">Red</option>
         <option value="blue">Blue</option>
-        <option value="green">Green</option>
+        <option selected="selected" value="green">Green</option>
         <option value="yellow">Yellow</option>
     </select>
-    <input type="submit" value="Submit">
 </div>
 
 <div id="player4NewGame">
-    Player 4 name:<br>
-    <input type="text" name="player4" value="enter name"><br>
-    <select>
+    <h4 class="latoFont">Player 4</h4>
+    <input type="text" name="player4" placeholder="player name"><br>
+    <select name="player4Color">
         <option value="red">Red</option>
         <option value="blue">Blue</option>
         <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
+        <option selected="selected" value="yellow">Yellow</option>
     </select>
-    <input type="submit" value="Submit">
 </div>
