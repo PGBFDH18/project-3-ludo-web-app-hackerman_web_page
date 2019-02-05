@@ -54,3 +54,29 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
+
+#player1NewGame, #player2NewGame, #player3NewGame, #player4NewGame {
+    display: none;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 200px;
+}
+
+input[type=text], select, textarea {
+    width: 200px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
