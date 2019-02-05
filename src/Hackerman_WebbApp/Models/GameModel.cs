@@ -5,15 +5,13 @@ using System.Threading.Tasks;
 
 namespace Hackerman_WebbApp.Models
 {
-    public class GameModel : IGameModel
+    public class GameModel 
     {
-        private int GameId { get; set; }
-        public List<Player> PlayerList { get; set; }
+        public int GameId { get; set; }
 
-        public void SetGameId(int gameId) => this.GameId = gameId;
-
-        public int GetGameId() => this.GameId;
-
-        public void AddPlayer(Player player) => this.PlayerList.Add(player);
+        public GameModel(int id)
+        {
+            GameId = id;
+        }
     }
 }

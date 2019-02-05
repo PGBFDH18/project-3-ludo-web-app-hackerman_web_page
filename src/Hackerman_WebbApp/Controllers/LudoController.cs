@@ -12,11 +12,11 @@ namespace Hackerman_WebbApp.Controllers
 
     public class LudoController : Controller
     {
-        private IGameModel game;
+        private IRestClient client;
 
-        public LudoController(IGameModel _game)
+        public LudoController(IRestClient _client)
         {
-            game = _game;
+            client = _client;
         }
 
         public IActionResult Index()
@@ -27,24 +27,25 @@ namespace Hackerman_WebbApp.Controllers
         [HttpPost("newgame")]
         public async Task<IActionResult> NewGame()
         {
-            var client = new RestClient("https://ludoapi.azurewebsites.net/");
+            client = new RestClient("https://ludoapi.azurewebsites.net/");
 
             var response = new RestRequest("api/ludo", Method.POST);
             var restResponse = await client.ExecuteTaskAsync(response);
             var output = restResponse.Content;
-            game.SetGameId(int.Parse(output));
+            var game = new GameModel(int.Parse(output));
 
             return View(game);
         }
         
         [HttpPost("addplayer/{gameId}")]
-        public async Task<IActionResult> AddPlayer(string gameId, [FromBody] List<Player> players)
+        public async Task<IActionResult> AddPlayer(GameModel game, List<Player> players)
         {
+            var playerList = players;
             //var playerList = JsonConvert.DeserializeObject<List<Player>>(players);
             var client = new RestClient("https://ludoapi.azurewebsites.net/");
             foreach (var item in players)
             {
-                var response = new RestRequest($"api/ludo/{gameId}/players", Method.POST);
+                var response = new RestRequest($"api/ludo/{game.GameId}/players", Method.POST);
                 response.AddJsonBody(item);
                 var restResponse = await client.ExecuteTaskAsync(response);
             }
@@ -59,10 +60,9 @@ namespace Hackerman_WebbApp.Controllers
 
             var response = new RestRequest("api/ludo", Method.GET);
             var restResponse = await client.ExecuteTaskAsync(response);
-            int[] output = JsonConvert.DeserializeObject<int[]>(restResponse.Content);
-            GameList.SetGameList(output);
-
-            return View(GameList.GetGameList());
+            GameList output = new GameList() { ListOfAllGames = JsonConvert.DeserializeObject<int[]>(restResponse.Content) };
+            
+            return View(output);
         }
 
         [HttpGet("gameboard")]
