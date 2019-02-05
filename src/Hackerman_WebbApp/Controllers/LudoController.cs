@@ -45,14 +45,10 @@ namespace Hackerman_WebbApp.Controllers
         {
             var gameId = HttpContext.Session.GetInt32("game");
 
-            //var playerList = JsonConvert.DeserializeObject<List<Player>>(players);
-            var client = new RestClient("https://ludoapi.azurewebsites.net/");
-            //foreach (var item in players)
-            //{
+           
             var response = new RestRequest($"api/ludo/{gameId}/players", Method.POST);
             response.AddJsonBody(player);
             var restResponse = await client.ExecuteTaskAsync(response);
-            //}
 
             return Ok();
         }
@@ -60,7 +56,6 @@ namespace Hackerman_WebbApp.Controllers
         [HttpGet("listgames")]
         public async Task<IActionResult> ListGames()
         {
-            var client = new RestClient("https://ludoapi.azurewebsites.net/");
 
             var response = new RestRequest("api/ludo", Method.GET);
             var restResponse = await client.ExecuteTaskAsync(response);
