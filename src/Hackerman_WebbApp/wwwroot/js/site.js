@@ -3,11 +3,14 @@
 
 // Write your JavaScript code.
 
-
+function nextTileToMoveTo() {
+    
+}
 
 function MovePiece() {
 
     $("#tile4").append($(event.target));
+
 }
 
 function DiceThrow() {
