@@ -42,8 +42,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: 'Lato', sans-serif;
 }
 .footer {
   position: absolute;
@@ -84,6 +85,3 @@ input[type=text], select, textarea {
     resize: vertical;
 }
 
-.latoFont {
-    font-family: 'Lato', sans-serif;
-}
