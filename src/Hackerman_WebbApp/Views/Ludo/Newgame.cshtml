@@ -1,11 +1,12 @@
-﻿@{
+﻿@model Hackerman_WebbApp.Models.GameModel
+@{
     ViewData["Title"] = "Newgame";
 }
 
 
 <h1 class="latoFont">Create a new game</h1>
 
-<h2 class="latoFont">Gameid: 3257</h2>
+<h2 class="latoFont">Gameid: @Model.GetGameId()</h2>
 
 
 <h3 class="latoFont">Choose amount of players:</h3>
@@ -17,48 +18,56 @@
 </select>
 
 
+<form action="/gameboard">
 
 
-<div id="player1NewGame" class="playersInput">
-    <h4 class="latoFont">Player 1</h4>
-    <input type="text" name="player1" placeholder="player name"><br>
-    <select name="player1Color">
-        <option selected="selected" value="red">Red</option>
-        <option value="blue">Blue</option>
-        <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
-    </select>
-</div>
+    <div id="player1NewGame" class="playersInput">
+        <h4 class="latoFont">Player 1</h4>
+        <input type="text" name="1" placeholder="player name"><br>
+        <select name="p1_color">
+            <option selected="selected" value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+        </select>
+    </div>
 
-<div id="player2NewGame" class="playersInput">
-    <h4 class="latoFont">Player 2</h4>
-    <input type="text" name="player2" placeholder="player name"><br>
-    <select name="player2Color">
-        <option value="red">Red</option>
-        <option selected="selected" value="blue">Blue</option>
-        <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
-    </select>
-</div>
+    <div id="player2NewGame" class="playersInput">
+        <h4 class="latoFont">Player 2</h4>
+        <input type="text" name="2" placeholder="player name"><br>
+        <select name="p2_color">
+            <option value="red">Red</option>
+            <option selected="selected" value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+        </select>
+    </div>
 
-<div id="player3NewGame">
-    <h4 class="latoFont">Player 3</h4>
-    <input type="text" name="player3" placeholder="player name"><br>
-    <select name="player3Color">
-        <option value="red">Red</option>
-        <option value="blue">Blue</option>
-        <option selected="selected" value="green">Green</option>
-        <option value="yellow">Yellow</option>
-    </select>
-</div>
+    <div id="player3NewGame">
+        <h4 class="latoFont">Player 3</h4>
+        <input type="text" name="3" placeholder="player name"><br>
+        <select name="p3_color">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option selected="selected" value="green">Green</option>
+            <option value="yellow">Yellow</option>
+        </select>
+    </div>
 
-<div id="player4NewGame">
-    <h4 class="latoFont">Player 4</h4>
-    <input type="text" name="player4" placeholder="player name"><br>
-    <select name="player4Color">
-        <option value="red">Red</option>
-        <option value="blue">Blue</option>
-        <option value="green">Green</option>
-        <option selected="selected" value="yellow">Yellow</option>
-    </select>
-</div>
+    <div id="player4NewGame">
+        <h4 class="latoFont">Player 4</h4>
+        <input type="text" name="4" placeholder="player name"><br>
+        <select name="p4_color">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option selected="selected" value="yellow">Yellow</option>
+        </select>
+    </div>
+
+    <div>
+        <input class="button" type="submit" value="Submit players" />
+    </div>
+
+
+</form>
