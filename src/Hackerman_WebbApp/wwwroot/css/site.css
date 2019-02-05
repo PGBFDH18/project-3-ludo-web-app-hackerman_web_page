@@ -55,6 +55,10 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+#player1NewGame, #player2NewGame, #player3NewGame, #player4NewGame {
+    display: none;
+}
+
 .button {
     background-color: #4CAF50;
     border: none;

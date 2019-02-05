@@ -1,8 +1,68 @@
-﻿
-
-@{
+﻿@{
     ViewData["Title"] = "Newgame";
 }
 
-<h1>@Output</h1>
 
+<h1>Create a new game</h1>
+
+<h2>Gameid: @Output</h2>
+
+
+Choose amount of players<br>
+<select id="playerAmount" onchange="changingSelect()">
+    <option value="" selected disabled hidden>Choose here</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+</select>
+
+
+
+
+<div id="player1NewGame" class="playersInput">
+    Player 1 name:<br>
+    <input type="text" name="player1" value="enter name"><br>
+    <select>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+    </select>
+    <input type="submit" value="Submit">
+</div>
+
+<div id="player2NewGame" class="playersInput">
+    Player 2 name:<br>
+    <input type="text" name="player2" value="enter name"><br>
+    <select>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+    </select>
+    <input type="submit" value="Submit">
+</div>
+
+<div id="player3NewGame">
+    Player 3 name:<br>
+    <input type="text" name="player3" value="enter name"><br>
+    <select>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+    </select>
+    <input type="submit" value="Submit">
+</div>
+
+<div id="player4NewGame">
+    Player 4 name:<br>
+    <input type="text" name="player4" value="enter name"><br>
+    <select>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+    </select>
+    <input type="submit" value="Submit">
+</div>
