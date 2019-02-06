@@ -141,10 +141,6 @@ input[type=text], select, textarea {
     text-align:center;
 }
 
-#RulesText{
-    padding-left:3px;
-    padding-right:3px;
-}
 
 #CreateLoadAlign{
     text-align:center;
