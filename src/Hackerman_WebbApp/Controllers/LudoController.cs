@@ -127,5 +127,18 @@ namespace Hackerman_WebbApp.Controllers
 
             return View("Gameboard");
         }
+
+        [HttpGet("getplayers/{gameId}/players")]
+        public async Task<IActionResult> GetPlayers()
+        {
+            GameModel output = new GameModel();
+            var gameId = HttpContext.Session.GetInt32("game");
+
+            var response = new RestRequest($"api/ludo/{gameId}/players", Method.GET);
+            var restResponse = await client.ExecuteTaskAsync(response);
+            output.Player = JsonConvert.DeserializeObject<Player>(restResponse.Content);
+
+            return Ok();
+        }
     }
 }
