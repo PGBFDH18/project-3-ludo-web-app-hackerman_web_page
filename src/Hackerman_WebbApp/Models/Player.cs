@@ -10,5 +10,6 @@ namespace Hackerman_WebbApp.Models
         public int Id { get; set; }
         public string Color { get; set; }
         public string Name { get; set; }
+        public Piece[] Piece { get; set; }
     }
 }

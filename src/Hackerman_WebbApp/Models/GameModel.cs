@@ -11,6 +11,8 @@ namespace Hackerman_WebbApp.Models
         public string State { get; set; }
         public int NumberOfPlayers { get; set; }
         public int CurrentPlayerId { get; set; }
+        public Player Player { get; set; }
+        public MovePiece MovePiece { get; set; }
 
     }
 }
