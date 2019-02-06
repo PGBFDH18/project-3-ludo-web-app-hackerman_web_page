@@ -27,13 +27,20 @@
             //var t = document.getElementById("playerAmount");
             //var finalValue = t.options[t.selectedIndex].value;
 
+            let element = document.getElementById("players");
+
+            while (element.firstChild) {
+
+                element.removeChild(element.firstChild);
+            }
+
+
             for (var i = 1; i <= val; i++) {
-                var h4 = "<h4>Player " + i + " </h4>"
-                var id = "<input type='hidden' asp-for='Id' value='" + i + "' />"
-                var input = "<input asp-for='Name' type='text' placeholder='Player name' />"
-                var select = "<select asp-for='Color'><option value='red'>Red</option><option value='blue'>Blue</option><option value='green'>Green</option><option value='yellow'>Yellow</option></select>"
-                var removeButton = "<i class='fas fa-times-circle' style='color: black'</i>"
-                $("#players").append(h4, input, select, removeButton)
+                var h4 = '<h4>Player ' + i + ' </h4>'
+                var id = '<input type="hidden" asp-for="Id" value="' + i + '" />'
+                var input = '<input asp-for="Name" type="text" placeholder="Player name" />'
+                var select = '<select asp-for="Color"><option value="red">Red</option><option value="blue">Blue</option><option value="green">Green</option><option value="yellow">Yellow</option></select>'
+                $("#players").append(h4, id, input, select)
             }
             removeOptions();
         }
