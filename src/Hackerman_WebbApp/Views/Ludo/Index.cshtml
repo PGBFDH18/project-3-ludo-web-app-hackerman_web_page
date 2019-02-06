@@ -2,11 +2,60 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container center-block">
+    <h1 id="indexHeader" class="latoFont">Hackerman Ludo</h1>
 
-<a class="button" href="gameboard">Click for gameboard</a>
+    <hr id="HeaderLine" />
+    <h2 id="SubHeader">Create or join a game</h2>
 
-<form action="newgame" method="post">
-    <input class="button" type="submit" value="New Game" />
-</form>
+    <div id="RulesBox">
+        <h3 class="BoxHeader RulesHeader">Rules</h3>
+        <div class="dropcontent">
+            <p id="RulesText">Ludo is a strategy board game for two to four players, in which the players race their four tokens from start to finish according to the rolls of a single die.</p>
+            <p id="RulesText">The game runs on a web application wich makes it possible for you to play with up to three friends on four different computers simultaneously!</p>
+        </div>
+    </div>
 
+    <div id="PlayBox">
+        <h3 class="BoxHeader RulesHeader">Play</h3>
+        <div class="dropcontent">
+            <div id="CreateLoadAlign">
+                <form action="newgame" method="post">
+                    <input class="button" type="submit" value="New Game" />
+                </form>
+                <form>
+                    <input class="button" value="Join Game" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="CreatedByBox">
+        <h3 class="BoxHeader RulesHeader">Created by</h3>
+        <div class="dropcontent">
+            <p>Victor Ronnerstedt</p>
+            <p>Dennis Hammarstrand</p>
+            <p>Olof kuken Olsson</p>
+            <p>Alexander Glandberger</p>
+            <p>Nicolas Hassiakis</p>
+            <p>Andreas Stanggren</p>
+        </div>
+    </div>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("RulesHeader");
+var i;
+
+for (i = 1; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>

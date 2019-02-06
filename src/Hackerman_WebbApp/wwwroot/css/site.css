@@ -10,12 +10,14 @@ a.navbar-brand {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    background-color: #fafafa;
 }
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+        background-color: #fafafa;
+    }
 }
 
 .border-top {
@@ -61,7 +63,7 @@ body {
     background-color: #048633;
     border: none;
     color: white;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 10px 10px;
     margin: 10px 0px;
     text-align: center;
@@ -80,3 +82,83 @@ input[type=text], select, textarea {
     margin-right: 10px;
 }
 
+#indexHeader {
+    text-align: center;
+    font-size: 65px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    padding-top:30px;
+    letter-spacing: 6px;
+    margin-bottom:5px;
+
+}
+
+.container{
+    width: 70%;
+    margin: auto;
+}
+
+#HeaderLine {
+    color: black;
+    height: 0px;
+    background-color: black;
+    border: 1px inset;
+    margin-top: 5px;
+
+}
+
+#SubHeader {
+    text-align: center;
+    padding: 40px;
+    padding-top: 14px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-size: 30px;
+
+}
+
+
+#RulesBox {
+    width: 30%;
+    float: left;
+    display: inline-block;
+
+}
+
+#PlayBox {
+    width: 40%;
+    display: inline-block;
+}
+
+#CreatedByBox {
+    width: 30%;
+    float: right;
+    display: inline-block;
+    text-align: center;
+}
+
+.BoxHeader{
+    text-align:center;
+}
+
+#RulesText{
+    padding-left:3px;
+    padding-right:3px;
+}
+
+#CreateLoadAlign{
+    text-align:center;
+}
+
+
+.active, .RulesHeader:hover  {
+    color: #7db7c6;
+    cursor: default;
+}
+
+.dropcontent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-out;
+
+}
