@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Hackerman_WebbApp.Models
 {
-    public class GameModel 
+    public class GameInfo
     {
-        public int GameId { get; set; }
         public string State { get; set; }
+        public int GameId { get; set; }
         public int NumberOfPlayers { get; set; }
         public int CurrentPlayerId { get; set; }
 

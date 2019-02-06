@@ -31,12 +31,16 @@ namespace Hackerman_WebbApp.Controllers
         [HttpPost("newgame")]
         public async Task<IActionResult> NewGame()
         {
-           
-            var response = new RestRequest("api/ludo", Method.POST);
-            var restResponse = await client.ExecuteTaskAsync(response);
-            var output = restResponse.Content;
-            var game = new GameModel() { GameId = int.Parse(output) };
-            HttpContext.Session.SetInt32("game", game.GameId);
+            byte[] gameId;
+            if (!HttpContext.Session.TryGetValue("game", out gameId))
+            {
+                var response = new RestRequest("api/ludo", Method.POST);
+                var restResponse = await client.ExecuteTaskAsync(response);
+                var output = restResponse.Content;
+                GameModel game = new GameModel() { GameId = int.Parse(output) };
+                HttpContext.Session.SetInt32("game", game.GameId);
+
+            }
             return View();
         }
 
@@ -50,7 +54,7 @@ namespace Hackerman_WebbApp.Controllers
             response.AddJsonBody(player);
             var restResponse = await client.ExecuteTaskAsync(response);
 
-            return Ok();
+            return View("Newgame");
         }
 
         [HttpGet("listgames")]
@@ -62,6 +66,22 @@ namespace Hackerman_WebbApp.Controllers
             GameList output = new GameList() { ListOfAllGames = JsonConvert.DeserializeObject<int[]>(restResponse.Content) };
 
             return View(output);
+        }
+
+        [HttpGet("gameinfo")]
+        public async Task<GameModel> GameInfo()
+        {
+            //if (GetInfo == "info")
+            //{
+                var gameId = HttpContext.Session.GetInt32("game");
+
+                var response = new RestRequest($"api/ludo/{gameId}", Method.GET);
+                var restResponse = await client.ExecuteTaskAsync(response);
+                GameModel output = JsonConvert.DeserializeObject<GameModel>(restResponse.Content);
+
+            //    return Ok();
+            //}
+            return output;
         }
 
         [HttpGet("gameboard")]

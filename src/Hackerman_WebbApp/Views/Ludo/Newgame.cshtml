@@ -7,14 +7,14 @@
 <h1 class="latoFont">Create a new game</h1>
 
 @*<div id"numberOfPlayerOption">
-    <h3 class="latoFont">Choose amount of players:</h3>
-    <select id="playerAmount" onchange="changingInputs(this.value)">
-        <option value="" selected disabled hidden>Choose here</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
-</div>*@
+        <h3 class="latoFont">Choose amount of players:</h3>
+        <select id="playerAmount" onchange="changingInputs(this.value)">
+            <option value="" selected disabled hidden>Choose here</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </div>*@
 
 
 <form action="addplayer" method="post">
@@ -26,52 +26,50 @@
         <option value="Green">Green</option>
         <option value="Yellow">Yellow</option>
     </select>
-    <input type="submit" class="button" onclick="newPlayer()" value="Add player" />
+    <input type="submit" class="button" value="Add player" />
 </form>
 
 <form action="gameboard">
-    <input type="submit" class="button" value="Start Game"/>
+    <input type="submit" class="button" value="Start Game" />
 </form>
 
-
-
 @*<form action="addplayer" method="post" id="addPlayerForm">
-    <div id="players">
+        <div id="players">
 
-    </div>
-    <script>
-        function changingInputs(val) {
+        </div>
+        <script>
+            function changingInputs(val) {
 
-            //var t = document.getElementById("playerAmount");
-            //var finalValue = t.options[t.selectedIndex].value;
+                //var t = document.getElementById("playerAmount");
+                //var finalValue = t.options[t.selectedIndex].value;
 
-            let element = document.getElementById("players");
+                let element = document.getElementById("players");
 
-            while (element.firstChild) {
+                while (element.firstChild) {
 
-                element.removeChild(element.firstChild);
+                    element.removeChild(element.firstChild);
+                }
+
+
+                for (var i = 1; i <= val; i++) {
+                    var h4 = '<h4>Player ' + i + ' </h4>'
+                    var id = '<input type="hidden" asp-for="Id" value="' + i + '" />'
+                    var input = '<input asp-for="Name" type="text" placeholder="Player name" />'
+                    var select = '<select asp-for="Color"><option value="red">Red</option><option value="blue">Blue</option><option value="green">Green</option><option value="yellow">Yellow</option></select>'
+                    $("#players").append(h4, id, input, select)
+                }
+                removeOptions();
             }
 
+            function removeOptions() {
 
-            for (var i = 1; i <= val; i++) {
-                var h4 = '<h4>Player ' + i + ' </h4>'
-                var id = '<input type="hidden" asp-for="Id" value="' + i + '" />'
-                var input = '<input asp-for="Name" type="text" placeholder="Player name" />'
-                var select = '<select asp-for="Color"><option value="red">Red</option><option value="blue">Blue</option><option value="green">Green</option><option value="yellow">Yellow</option></select>'
-                $("#players").append(h4, id, input, select)
             }
-            removeOptions();
-        }
-
-        function removeOptions() {
-            
-        }
-    </script>
- 
-
-    <div>
-        <input class="button" type="submit" value="Submit players" />
-    </div>
+        </script>
 
 
-</form>*@
+        <div>
+            <input class="button" type="submit" value="Submit players" />
+        </div>
+
+
+    </form>*@
