@@ -134,3 +134,13 @@ input[type=text], select, textarea {
 .byLine{
     text-align: center;
 }
+
+.newgamecontainer{
+    width: 60%;
+}
+
+#newgameHeader {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
