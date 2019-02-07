@@ -9,7 +9,7 @@
     <h2 id="SubHeader">Create or join a game</h2>
 
     <div class="MenuBox">
-        <h3 class="BoxHeader RulesHeader">Rules</h3>
+        <h3 class="BoxHeader">Rules</h3>
         <div class="dropcontent">
             <p>Ludo is a strategy board game for two to four players, in which the players race their four tokens from start to finish according to the rolls of a single die.</p>
             <p>The game runs on a web application wich makes it possible for you to play with up to three friends on four different computers simultaneously!</p>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="MenuBox">
-        <h3 class="BoxHeader RulesHeader">Play</h3>
+        <h3 class="BoxHeader">Play</h3>
         <div class="dropcontent">
             <div id="CreateLoadAlign">
                 <form action="newgame" method="post">
@@ -31,7 +31,9 @@
     </div>
 
     <div class="MenuBox">
-        <h3 class="BoxHeader RulesHeader">Created by</h3>
+        <div class="BoxHeader">
+            <h3>Created by</h3>
+        </div>
         <div class="dropcontent">
             <p>Victor Ronnerstedt</p>
             <p>Dennis Hammarstrand</p>
@@ -44,15 +46,14 @@
 </div>
 
 <footer class="footer">
-    <div style="text-align:center;vertical-align:bottom">
-        <h4>© 2019 Hackerman Studios <a href="https://github.com/orgs/PGBFDH18/teams/hackerman_web_page"><i class="fab fa-github"></i></a></h4>
-
-
+    <div class="byLine">
+        <h4>© 2019 Hackerman Studios</h4>
+        <p><a href="https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page">See our github repo here  <i class="fab fa-github"></i></a></p>
     </div>
 </footer>
 
 <script>
-var coll = document.getElementsByClassName("RulesHeader");
+var coll = document.getElementsByClassName("BoxHeader");
 var i;
 
 for (i = 0; i < coll.length; i++) {
