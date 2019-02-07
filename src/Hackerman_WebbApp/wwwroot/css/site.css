@@ -1,17 +1,9 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
+﻿
 html {
     font-size: 14px;
     background-color: #fafafa;
+    position: relative;
+    min-height: 100%;
 }
 @media (min-width: 768px) {
     html {
@@ -20,27 +12,11 @@ html {
     }
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+@media (max-width: 769px){
+    html{
+        font-size: 18px;
+    }
+   
 }
 
 body {
@@ -50,8 +26,8 @@ body {
 }
 .footer {
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  bottom: 50px;
+  width: 99%;
   white-space: nowrap;
   /* Set the fixed height of the footer here */
   height: 60px;
@@ -90,7 +66,6 @@ input[type=text], select, textarea {
     padding-top:30px;
     letter-spacing: 6px;
     margin-bottom:5px;
-
 }
 
 .container{
@@ -100,11 +75,8 @@ input[type=text], select, textarea {
 
 #HeaderLine {
     color: black;
-    height: 0px;
-    background-color: black;
     border: 1px inset;
     margin-top: 5px;
-
 }
 
 #SubHeader {
@@ -117,30 +89,22 @@ input[type=text], select, textarea {
 
 }
 
-
-#RulesBox {
-    width: 30%;
+.MenuBox {
+    width: 33%;
     float: left;
-    display: inline-block;
-
 }
 
-#PlayBox {
-    width: 40%;
-    display: inline-block;
+@media (max-width: 750){
+    .MenuBox {
+        margin: auto;
+        float: none;
+    }
 }
 
-#CreatedByBox {
-    width: 30%;
-    float: right;
-    display: inline-block;
-    text-align: center;
-}
 
 .BoxHeader{
     text-align:center;
 }
-
 
 #CreateLoadAlign{
     text-align:center;
@@ -155,6 +119,9 @@ input[type=text], select, textarea {
 .dropcontent {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.7s ease-out;
+    transition: max-height 0.2s ease-out;
 
+}
+.dropcontent p{
+    text-align: center;
 }

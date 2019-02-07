@@ -14,7 +14,8 @@ function MovePiece() {
 }
 
 function DiceThrow() {
-    var diceNumber = document.getElementById("dicevalue").value;
+
+    var diceNumber = Math.floor(Math.random() * 6) + 1;
 
     document.getElementById("center").style.display = "none";
     document.getElementById("leftUpper").style.display = "none";
