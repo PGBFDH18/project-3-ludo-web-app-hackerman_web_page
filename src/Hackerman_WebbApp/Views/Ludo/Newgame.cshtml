@@ -3,9 +3,8 @@
     ViewData["Title"] = "Newgame";
 }
 
-<div class="newgamecontainer">
-
 <h1 id="newgameHeader" class="latoFont">Create a new game</h1>
+<hr id="newgameHeaderLine" />
 
 @*<div id"numberOfPlayerOption">
         <h3 class="latoFont">Choose amount of players:</h3>
@@ -17,22 +16,50 @@
         </select>
     </div>*@
 
+<div class="newgamecontainer">
 
-<form action="addplayer" method="post">
-    <input asp-for="Id" type="hidden" value="1" />
-    <input asp-for="Name" type="text" placeholder="Write name" />
-    <select asp-for="Color">
-        <option value="Red">Red</option>
-        <option value="Blue">Blue</option>
-        <option value="Green">Green</option>
-        <option value="Yellow">Yellow</option>
-    </select>
-    <input type="submit" class="button" value="Add player" />
-</form>
 
-<form action="gameboard">
-    <input type="submit" class="button" value="Start Game" />
-</form>
+    <div class="newgamecontainerLeft">
+        <div style="text-align:center">
+            <h2 style="text-align:center">Add player</h2>
+            <form action="addplayer" method="post">
+                <div id="playernameandcolor">
+                    <input asp-for="Id" type="hidden" value="1" />
+                    <input asp-for="Name" type="text" placeholder="Write name" />
+                    <select asp-for="Color">
+                        <option value="Red">Red</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Green">Green</option>
+                        <option value="Yellow">Yellow</option>
+                    </select>
+                </div>
+                <div id="addplayerButton">
+                    <input id="addplayerButton" type="submit" class="button" value="Add player" />
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div class="newgamecontainerRight">
+        <h2 style="text-align:center;">Added Players</h2>
+        <div style="text-align:center;">
+            <h3>Player1</h3>
+            <h3>Player2</h3>
+            <h3>Player3</h3>
+            <h3>Player4</h3>
+        </div>
+    </div>
+
+    <div class="newgamecontainerBottom">
+
+        <form action="gameboard">
+            <input type="submit" class="button" value="Start Game" />
+        </form>
+    </div>
+
+</div>
 
 
 <footer class="footer">
@@ -41,6 +68,18 @@
         <p><a href="https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page">See our github repo here  <i class="fab fa-github"></i></a></p>
     </div>
 </footer>
+
+@*<script>
+
+    $('#addplayerButton').click(function() {
+        $('#foo').css({
+            'background-color': 'red',
+            'color': 'white',
+            'font-size': '44px'
+        });
+    });
+
+</script>*@
 
 @*<form action="addplayer" method="post" id="addPlayerForm">
         <div id="players">
@@ -82,5 +121,3 @@
 
 
     </form>*@
-
-</div>
