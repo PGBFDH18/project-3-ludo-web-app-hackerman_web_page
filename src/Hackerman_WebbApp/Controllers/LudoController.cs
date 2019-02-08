@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
+using Serilog;
 
 namespace Hackerman_WebbApp.Controllers
 {
@@ -14,13 +15,11 @@ namespace Hackerman_WebbApp.Controllers
     public class LudoController : Controller
     {
         private IRestClient client;
-    
 
         public LudoController(IRestClient _client)
         {
             client = _client;
             client.BaseUrl = new Uri("https://ludoapi.azurewebsites.net/");
-
         }
 
         public IActionResult Index()
@@ -39,7 +38,7 @@ namespace Hackerman_WebbApp.Controllers
                 var output = restResponse.Content;
                 GameModel game = new GameModel() { GameId = int.Parse(output) };
                 HttpContext.Session.SetInt32("game", game.GameId);
-
+                Log.Information("Game was created with ID: {gameId}", game.GameId);
             }
             return View();
         }

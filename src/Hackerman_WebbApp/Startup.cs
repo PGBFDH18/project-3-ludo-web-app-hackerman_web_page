@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestSharp;
+using Serilog;
 
 namespace Hackerman_WebbApp
 {
@@ -19,6 +20,13 @@ namespace Hackerman_WebbApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Seq("http://localhost:5341/")
+                .CreateLogger();
+
+            Log.Information("Starting Up");
         }
 
         public IConfiguration Configuration { get; }
@@ -32,7 +40,6 @@ namespace Hackerman_WebbApp
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddTransient<IRestClient, RestClient>();
@@ -53,7 +60,7 @@ namespace Hackerman_WebbApp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
