@@ -25,42 +25,36 @@
             <form action="addplayer" method="post">
                 <div id="playernameandcolor">
                     <input asp-for="Id" type="hidden" value="1" />
-                    <input asp-for="Name" type="text" placeholder="Write name" />
-                    <select asp-for="Color">
+                    <input id="playername" asp-for="Name" type="text" placeholder="Write name" />
+                    <select asp-for="Color" id="playercolor">
                         <option value="Red">Red</option>
                         <option value="Blue">Blue</option>
                         <option value="Green">Green</option>
                         <option value="Yellow">Yellow</option>
                     </select>
                 </div>
-                <div id="addplayerButton">
-                    <input id="addplayerButton" type="submit" class="button" value="Add player" />
-                </div>
+                    <input id="addplayerButton" type="submit" class="button" value="Add player" onclick="addPlayerOnPage()" />
             </form>
-
-
         </div>
     </div>
 
     <div class="newgamecontainerRight">
         <h2 style="text-align:center;">Added Players</h2>
         <div style="text-align:center;">
-            <h3>Player1</h3>
-            <h3>Player2</h3>
-            <h3>Player3</h3>
-            <h3>Player4</h3>
+            <h3 id="p1name">Player1</h3>
+            <h3 id="p2name">Player2</h3>
+            <h3 id="p3name">Player3</h3>
+            <h3 id="p4name">Player4</h3>
         </div>
     </div>
 
     <div class="newgamecontainerBottom">
-
         <form action="gameboard">
             <input type="submit" class="button" value="Start Game" />
         </form>
     </div>
 
 </div>
-
 
 <footer class="footer">
     <div class="byLine">
@@ -69,17 +63,30 @@
     </div>
 </footer>
 
-@*<script>
+<script>
+    var counter = 1;
+    @*$('#playercolor option:selected').remove();*@
 
-    $('#addplayerButton').click(function() {
-        $('#foo').css({
-            'background-color': 'red',
-            'color': 'white',
-            'font-size': '44px'
-        });
-    });
-
-</script>*@
+    function addPlayerOnPage(){
+    if (counter = 1){
+        var x = document.getElementById("playername").value;
+        document.getElementById("p1name").innerHTML = x;
+        counter += 1;
+        } else if (counter = 2){
+        var x = document.getElementById("playername").value;
+        document.getElementById("p2name").innerHTML = x;
+        counter += 1;
+        } else if (counter = 3){
+        var x = document.getElementById("playername").value;
+        document.getElementById("p3name").innerHTML = x;
+        counter += 1;
+        } else if (counter = 4){
+        var x = document.getElementById("playername").value;
+        document.getElementById("p3name").innerHTML = x;
+        counter += 1;
+        }
+    };
+</script>
 
 @*<form action="addplayer" method="post" id="addPlayerForm">
         <div id="players">
