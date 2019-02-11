@@ -19,3 +19,5 @@ We added Continuous Deployment to DevOps for our API. Later on we started buildi
 
 ### Day 6
 The day started of by changing the form where you enter the players name and color. We now have a button you have to press to submit the player to the API and this has to be done for each player so that we don't send all players and the same time to the API. We've updated the Index page by making it look more up to date. By using Javascript we added drop-down animations for the clickable text, for example, by clicking on *Created by* will result in a text dropping down showing the name of the creators (us). We then added 2 Get-methods in  *Controllers* that gets all the essential info (pieceID, playerID etc.) to the gameboard.
+### Day 7
+Added logging to Controller aswell as when you add a player it will show up under *Added Players*.
