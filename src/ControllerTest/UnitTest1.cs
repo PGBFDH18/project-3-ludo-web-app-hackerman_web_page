@@ -17,17 +17,18 @@ namespace ControllerTest
             // Arrange
 
             RestClient client = new RestClient();
-         
+
             var controller = new LudoController(client);
 
 
             // Act
 
-            IActionResult result =await controller.ListGames();
+            IActionResult result = await controller.ListGames();
 
             // Assert
 
             Assert.NotNull(result);
+            Assert.IsType<ViewResult>(result);
 
 
 
