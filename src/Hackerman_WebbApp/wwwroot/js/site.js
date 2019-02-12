@@ -13,9 +13,9 @@ function MovePiece() {
 
 }
 
-function DiceThrow(diceNumber) {
+function DiceThrow() {
 
-    //var diceNumber = Math.floor(Math.random() * 6) + 1;
+    var diceNumber = Math.floor(Math.random() * 6) + 1;
 
     document.getElementById("center").style.display = "none";
     document.getElementById("leftUpper").style.display = "none";
@@ -63,7 +63,6 @@ function DiceThrow(diceNumber) {
         document.getElementById("leftMiddle").style.display = "inline";
 
     }
-    return diceNumber;
 }
 /*
 function changingSelect() {
