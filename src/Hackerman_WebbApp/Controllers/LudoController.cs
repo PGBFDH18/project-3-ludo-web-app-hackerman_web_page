@@ -40,7 +40,7 @@ namespace Hackerman_WebbApp.Controllers
                 HttpContext.Session.SetInt32("game", game.GameId);
                 Log.Information("Game was created with ID: {gameId}", game.GameId);
             }
-            return View();
+            return View(new Player() { Id = 0 });
         }
 
         [HttpPost("addplayer")]
@@ -53,7 +53,7 @@ namespace Hackerman_WebbApp.Controllers
             response.AddJsonBody(player);
             var restResponse = await client.ExecuteTaskAsync(response);
 
-            return View("Newgame");
+            return View("Newgame", new Player() { Id=player.Id+1 });
         }
 
         [HttpGet("listgames")]
