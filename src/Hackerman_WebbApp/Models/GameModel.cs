@@ -14,5 +14,8 @@ namespace Hackerman_WebbApp.Models
         public Player Player { get; set; }
         public MovePiece MovePiece { get; set; }
 
+        public List<Player> PlayerList { get; set; }
+
+        public PlayerCounter WhosTurn { get; set; }
     }
 }

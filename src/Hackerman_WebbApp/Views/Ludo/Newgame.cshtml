@@ -16,6 +16,8 @@
                 <div id="playernameandcolor">
                     <input asp-for="Id" type="hidden" value="@Model.Id" />
                     <input id="playername" asp-for="Name" type="text" placeholder="Write name" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <span asp-validation-for="Name" class="text-danger"></span>
                     <select asp-for="Color" id="playercolor">
                         <option value="Red">Red</option>
                         <option value="Blue">Blue</option>
@@ -23,7 +25,7 @@
                         <option value="Yellow">Yellow</option>
                     </select>
                 </div>
-                    <input id="addplayerButton" type="submit" class="button" value="Add player" onclick="addPlayerOnPage()" />
+                <input id="addplayerButton" type="submit" class="button" value="Add player" onclick="addPlayerOnPage()" />
             </form>
         </div>
     </div>
