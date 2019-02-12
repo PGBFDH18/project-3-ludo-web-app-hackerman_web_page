@@ -15,11 +15,13 @@ namespace Hackerman_WebbApp.Controllers
     public class LudoController : Controller
     {
         private IRestClient client;
+        private IPlayerCounter counter;
 
-        public LudoController(IRestClient _client)
+        public LudoController(IRestClient _client, IPlayerCounter _counter)
         {
             client = _client;
             client.BaseUrl = new Uri("https://ludoapi.azurewebsites.net/");
+            counter = _counter;
         }
 
         public IActionResult Index()
@@ -52,7 +54,7 @@ namespace Hackerman_WebbApp.Controllers
                 HttpContext.Session.SetString("name", player.Name);
                 var gameId = HttpContext.Session.GetInt32("game");
 
-           
+
                 var response = new RestRequest($"api/ludo/{gameId}/players", Method.POST);
                 response.AddJsonBody(player);
                 var restResponse = await client.ExecuteTaskAsync(response);
@@ -76,16 +78,12 @@ namespace Hackerman_WebbApp.Controllers
         [HttpGet("gameinfo")]
         public async Task<GameModel> GameInfo()
         {
-            //if (GetInfo == "info")
-            //{
-                var gameId = HttpContext.Session.GetInt32("game");
+            var gameId = HttpContext.Session.GetInt32("game");
 
-                var response = new RestRequest($"api/ludo/{gameId}", Method.GET);
-                var restResponse = await client.ExecuteTaskAsync(response);
-                GameModel output = JsonConvert.DeserializeObject<GameModel>(restResponse.Content);
-
-            //    return Ok();
-            //}
+            var response = new RestRequest($"api/ludo/{gameId}", Method.GET);
+            var restResponse = await client.ExecuteTaskAsync(response);
+            GameModel output = JsonConvert.DeserializeObject<GameModel>(restResponse.Content);
+            
             return output;
         }
 
@@ -96,8 +94,11 @@ namespace Hackerman_WebbApp.Controllers
 
             var response = new RestRequest($"api/ludo/{gameId}/state", Method.PUT);
             var restResponse = await client.ExecuteTaskAsync(response);
-
-            return View();
+            GameModel output = new GameModel();
+            var response2 = new RestRequest($"api/ludo/{gameId}/players/0", Method.GET);
+            var restResponse2 = await client.ExecuteTaskAsync(response2);
+            output.Player = JsonConvert.DeserializeObject<Player>(restResponse2.Content);
+            return View(output);
         }
 
         [HttpGet("playerinfo/{playerId}")]
@@ -113,24 +114,50 @@ namespace Hackerman_WebbApp.Controllers
             return View("Gameboard");
         }
 
-        [HttpGet("movepiece/{playerId}/{pieceId}")]
-        public async Task<IActionResult> MovePiece(int playerId, int pieceId)
+
+        [HttpGet("allplayerinfo")]
+        public async Task<IActionResult> AllPlayerInfo(int playerId)
         {
-            GameModel output = new GameModel() { MovePiece = new MovePiece() };
+            GameModel currentGameInfo = await GameInfo();
             var gameId = HttpContext.Session.GetInt32("game");
 
-            var response = new RestRequest($"api/ludo/{gameId}/players/{playerId}", Method.GET);
+            
+            currentGameInfo.PlayerList = await GetPlayerInfo.GetPlayerPosition(currentGameInfo.NumberOfPlayers, (int)gameId, client);
+
+            return View("Gameboard", currentGameInfo);
+        }
+
+        [HttpGet("movepiece")]
+        public async Task<IActionResult> MovePiece(GameModel htmlModel)
+        {
+            var gameId = HttpContext.Session.GetInt32("game");
+
+            var response3 = new RestRequest($"api/ludo/{gameId}", Method.GET);
+            var restResponse3 = await client.ExecuteTaskAsync(response3);
+            GameModel output = JsonConvert.DeserializeObject<GameModel>(restResponse3.Content);
+            output.MovePiece = new MovePiece();
+            output.WhosTurn = new PlayerCounter();
+            output.MovePiece.PlayerId = counter.WhosTurn;
+     
+
+            var response = new RestRequest($"api/ludo/{gameId}/players/{output.MovePiece.PlayerId}", Method.GET);
             var restResponse = await client.ExecuteTaskAsync(response);
             output.Player = JsonConvert.DeserializeObject<Player>(restResponse.Content);
 
-            output.MovePiece.PlayerId = output.Player.Id;
-            output.MovePiece.PieceId = pieceId;
+           // output.MovePiece.PlayerId = output.Player.Id;
+            output.MovePiece.PieceId = htmlModel.MovePiece.PieceId;
             output.MovePiece.NumberOfFields = 5;
             var response2 = new RestRequest($"api/ludo/{gameId}", Method.PUT);
             response2.AddJsonBody(output.MovePiece);
             var restResponse2 = await client.ExecuteTaskAsync(response2);
 
-            return View("Gameboard");
+            output.PlayerList = await GetPlayerInfo.GetPlayerPosition((int)gameId, output.NumberOfPlayers, client);
+
+            counter.UpdatePlayerTurn(output.NumberOfPlayers);
+
+            output.Player = output.PlayerList[counter.WhosTurn];
+
+            return View("Gameboard", output);
         }
 
         [HttpGet("getplayers/{gameId}/players")]

@@ -43,6 +43,7 @@ namespace Hackerman_WebbApp
            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddTransient<IRestClient, RestClient>();
+            services.AddSingleton<IPlayerCounter, PlayerCounter>();
             services.AddDistributedMemoryCache();
             services.AddSession();
         }

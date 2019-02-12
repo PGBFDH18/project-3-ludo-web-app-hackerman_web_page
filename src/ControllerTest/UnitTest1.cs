@@ -5,7 +5,7 @@ using RestSharp;
 using Moq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
+using Hackerman_WebbApp;
 
 namespace ControllerTest
 {
@@ -17,8 +17,9 @@ namespace ControllerTest
             // Arrange
 
             RestClient client = new RestClient();
+            PlayerCounter counter = new PlayerCounter();
 
-            var controller = new LudoController(client);
+            var controller = new LudoController(client, counter);
 
 
             // Act
