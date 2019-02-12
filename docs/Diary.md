@@ -26,3 +26,5 @@ Added logging to Controller aswell as when you add a player it will show up unde
 ### Day 8
 With the API basically done we will now move on to making the game playable. We tried to get the position of a specific piece from a player but not the result result we were looking for. So most of the day were spent on forums to find a soluton for this.
 
+### Day 9
+We started of where we left of yesterday, by trying to get information(position) from a piece. We also went back to the gameboard and "implementing" the game logic to the visible gameboard. For example, we want to move pieces out to the gameboard, for now we can only hardcode it to move to a specific tile.
