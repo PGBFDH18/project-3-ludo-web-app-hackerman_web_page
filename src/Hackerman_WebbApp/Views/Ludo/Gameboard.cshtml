@@ -17,7 +17,7 @@
     </div>
     <div>
         @*<input id="dicevalue" type="text" placeholder="number" />*@
-        <a class="button" href="#" onclick="DiceThrow(); return false">Click to update dice</a>
+        <a class="button" href="#" onclick="DiceThrow();">Click to update dice</a>
     </div>
     <div>
         <form action="movepiece" method="get">
@@ -32,86 +32,89 @@
         </form>
     </div>
 </div>
+
+
 <div class="board">
     <div class="wing" id="leftWing">
-        <div class="field" id="tile14"></div>
-        <div class="field" id="tile15"></div>
-        <div class="field" id="tile16"></div>
-        <div class="field" id="tile17"></div>
-        <div class="field" id="tile18"></div>
-        <div class="field" id="tile19"></div>
-        <div class="field player2" id="tile13"></div>
-        <div class="field player2" id="g1"></div>
-        <div class="field player2" id="g2"></div>
-        <div class="field player2" id="g3"></div>
-        <div class="field player2" id="g4"></div>
-        <div class="field player2" id="g5"></div>
-        <div class="field" id="tile12"></div>
-        <div class="field" id="tile11"></div>
-        <div class="field" id="tile10"></div>
-        <div class="field" id="tile9"></div>
-        <div class="field" id="tile8"></div>
-        <div class="field" id="tile7"></div>
+        @for (int i = 7; i <= 19; i++)
+        {
+            if (i == 13)
+            {
+                <div class="field player2" id="tile13"></div>
+                for (int j = 1; j <= 5; j++)
+                {
+                    <div class="field player2" id="g@j"></div>
+
+                }
+            }                                 
+            <div class="field" id="tile@i"></div>            
+        }
+               
     </div>
     <div class="wing" id="topWing">
-        <div class="field" id="tile27"></div>
-        <div class="field" id="tile28"></div>
-        <div class="field" id="tile29"></div>
-        <div class="field" id="tile30"></div>
-        <div class="field" id="tile31"></div>
-        <div class="field" id="tile32"></div>
-        <div class="field player4" id="tile26"></div>
-        <div class="field player4" id="b1"></div>
-        <div class="field player4" id="b2"></div>
-        <div class="field player4" id="b3"></div>
-        <div class="field player4" id="b4"></div>
-        <div class="field player4" id="b5"></div>
-        <div class="field" id="tile25"></div>
-        <div class="field" id="tile24"></div>
-        <div class="field" id="tile23"></div>
-        <div class="field" id="tile22"></div>
-        <div class="field" id="tile21"></div>
-        <div class="field" id="tile20"></div>
+
+        @for (int i = 20; i <= 32; i++)
+        {
+            if (i == 26)
+            {
+                <div class="field player4" id="tile26"></div>
+                for (int j = 1; j <= 5; j++)
+                {
+                    <div class="field player4" id="b@j"></div>
+                }
+            }
+
+            <div class="field" id="tile@i"></div>
+        }
+
     </div>
     <div class="wing" id="rightWing">
-        <div class="field" id="tile40"></div>
-        <div class="field" id="tile41"></div>
-        <div class="field" id="tile42"></div>
-        <div class="field" id="tile43"></div>
-        <div class="field" id="tile44"></div>
-        <div class="field" id="tile45"></div>
-        <div class="field player3" id="tile39"></div>
-        <div class="field player3" id="gu1"></div>
-        <div class="field player3" id="gu2"></div>
-        <div class="field player3" id="gu3"></div>
-        <div class="field player3" id="gu4"></div>
-        <div class="field player3" id="gu5"></div>
-        <div class="field" id="tile38"></div>
-        <div class="field" id="tile37"></div>
-        <div class="field" id="tile36"></div>
-        <div class="field" id="tile35"></div>
-        <div class="field" id="tile34"></div>
-        <div class="field" id="tile33"></div>
+
+        @for (int i = 33; i <= 45; i++)
+        {
+            if (i == 39)
+            {
+                <div class="field player3" id="tile@i"></div>
+                for (int j = 1; j <= 5; j++)
+                {
+                    <div class="field player3" id="gu@j"></div>
+                }
+            }
+
+            <div class="field" id="tile@i"></div>
+            
+        }
+                          
     </div>
     <div class="wing" id="bottomWing">
-        <div class="field" id="tile1"></div>
-        <div class="field" id="tile2"></div>
-        <div class="field" id="tile3"></div>
-        <div class="field" id="tile4"></div>
-        <div class="field" id="tile5"></div>
-        <div class="field" id="tile6"></div>
-        <div class="field player1" id="tile52"></div>
-        <div class="field player1" id="r1"></div>
-        <div class="field player1" id="r2"></div>
-        <div class="field player1" id="r3"></div>
-        <div class="field player1" id="r4"></div>
-        <div class="field player1" id="r5"></div>
-        <div class="field" id="tile51"></div>
-        <div class="field" id="tile50"></div>
-        <div class="field" id="tile49"></div>
-        <div class="field" id="tile48"></div>
-        <div class="field" id="tile47"></div>
-        <div class="field" id="tile46"></div>
+
+
+        @for (int i = 46; i <= 52; i++)
+        {
+            if (i == 52)
+            {
+                <div class="field player1" id="tile@i"></div>
+                for (int j = 1; j <= 5; j++)
+                {
+                    <div class="field player1" id="r@j"></div>
+
+                }
+
+            }
+
+            <div class="field" id="tile@i"></div>
+
+
+        }
+        @for (int i = 1; i <= 6; i++)
+        {
+
+
+            <div class="field" id="tile@i"></div>
+
+
+        }
+     
     </div>
 
     <div class="goal"></div>
