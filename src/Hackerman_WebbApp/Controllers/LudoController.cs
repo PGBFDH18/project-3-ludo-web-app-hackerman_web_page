@@ -44,16 +44,22 @@ namespace Hackerman_WebbApp.Controllers
         }
 
         [HttpPost("addplayer")]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> AddPlayer(Player player)
         {
-            var gameId = HttpContext.Session.GetInt32("game");
+            if (ModelState.IsValid)
+            {
+                HttpContext.Session.SetString("name", player.Name);
+                var gameId = HttpContext.Session.GetInt32("game");
 
            
-            var response = new RestRequest($"api/ludo/{gameId}/players", Method.POST);
-            response.AddJsonBody(player);
-            var restResponse = await client.ExecuteTaskAsync(response);
+                var response = new RestRequest($"api/ludo/{gameId}/players", Method.POST);
+                response.AddJsonBody(player);
+                var restResponse = await client.ExecuteTaskAsync(response);
+            }
 
-            return View("Newgame");
+
+            return View("Newgame", player);
         }
 
         [HttpGet("listgames")]
