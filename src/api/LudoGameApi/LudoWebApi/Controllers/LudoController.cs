@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using LudoGameEngine;
 using LudoWebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -44,6 +45,15 @@ namespace LudoWebApi.Controllers
             return randomId;
         }
 
+        // GET: api/ludo/rolldice
+
+        [HttpGet("rolldice")]
+        public int RollDiece()
+        {
+            Diece diece = new Diece();
+            return diece.RollDiece();
+        }
+
 
         // GET: api/Ludo/5
         /// <summary>
@@ -57,9 +67,10 @@ namespace LudoWebApi.Controllers
             var game = ludoGames[gameId];
             int numberOfPlayers = game.GetPlayers().Count();
             var currentPlayer = game.GetCurrentPlayer();
-            return new GameModel() {
+            return new GameModel()
+            {
                 GameId = gameId,
-                CurrentPlayerId = currentPlayer == null ? 0: currentPlayer.PlayerId,
+                CurrentPlayerId = currentPlayer == null ? 0 : currentPlayer.PlayerId,
                 NumberOfPlayers = numberOfPlayers,
                 State = game.GetGameState().ToString()
             };
