@@ -32,10 +32,14 @@
     <div class="newgamecontainerRight">
         <h2 style="text-align:center;">Added Players</h2>
         <div style="text-align:center;">
-            <h3 id="p1name">Player1</h3>
-            <h3 id="p2name">Player2</h3>
-            <h3 id="p3name">Player3</h3>
-            <h3 id="p4name">Player4</h3>
+            @if (Model.NumberOfPlayers > 0)
+            {
+                @foreach (var item in Model.PlayerList)
+                {
+
+                    <h3>@item.Name</h3>
+                }
+            }
         </div>
     </div>
 
@@ -54,28 +58,24 @@
     </div>
 </footer>
 
-<script>
+<div>
 
-    function addPlayerOnPage() {
-    var playername = document.getElementById("playername").value;
-    var playerid = document.getElementById("Id").value;
+    @*@functions {
 
-    localStorage.setItem("player"+playerid, playername);
+        public void ListOptions()
+        {
+            List<string> colors = new List<string> { "Red", "Green", "Blue", "Yellow" };
 
-}
-
-function showAllPlayersFromStorage() {
-    document.getElementById("p1name").innerHTML = localStorage.getItem("player0");
-    document.getElementById("p2name").innerHTML = localStorage.getItem("player1");
-    document.getElementById("p3name").innerHTML = localStorage.getItem("player2");
-    document.getElementById("p4name").innerHTML = localStorage.getItem("player3");
-}
-
-    window.onload = showAllPlayersFromStorage();
-
-    function clearCache() {
-    window.location.reload(true);   
-    }
-
-</script>
-
+            foreach (var item in colors)
+            {
+                foreach(var pcolor in Model.PlayerList)
+                {
+                    if (item == pcolor.Color)
+                    {
+                        
+                    }
+                }
+            }
+        }
+    }*@
+</div>
