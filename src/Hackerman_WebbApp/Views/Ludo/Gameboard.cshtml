@@ -16,9 +16,7 @@
         <div class="diceDot" id="rightLower"></div>
     </div>
     <div>
-        @*<input id="dicevalue" type="text" placeholder="number" />*@
         <form action="rolldice" method="get">
-            @*<a class="button" href="#" onclick="DiceThrow(@Model.DiceThrow);">Click to update dice</a>*@
             <input type="submit" class="button" value="Roll Dice" />
 
         </form>
@@ -26,6 +24,7 @@
     <div>
         <form action="movepiece" method="get">
             <input asp-for="MovePiece.PlayerId" type="hidden" />
+            <input asp-for="DiceThrow" type="hidden" />
             <select asp-for="MovePiece.PieceId" id="playercolor">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -50,10 +49,10 @@
                     <div class="field player2" id="g @j"></div>
 
                 }
-            }                                 
-            <div class="field" id="tile @i"></div>            
+            }
+            <div class="field" id="tile @i"></div>
         }
-               
+
     </div>
     <div class="wing" id="topWing">
 
@@ -86,9 +85,9 @@
             }
 
             <div class="field" id="tile @i"></div>
-            
+
         }
-                          
+
     </div>
     <div class="wing" id="bottomWing">
 
@@ -118,16 +117,56 @@
 
 
         }
-     
+
     </div>
 
     <div class="goal"></div>
     <div class="start player1">
+        @if (Model.PlayerList != null)
+        {
+            for (int j = 0; j < Model.PlayerList.Count; j++)
+            {
+                if (Model.PlayerList[j].Color == "Red")
+                {
+                    for (int k = 0; k < Model.PlayerList[j].Piece.Length; k++)
+                    {
+                        if (Model.PlayerList[j].Piece[k].State != 0)
+                        {
+                            <div class="field" id="piece @j"></div>
+                        }
+                    }
 
-        <div class="field">
-            <div class="brick player1" id="piece1"></div>
-        </div>
-        <div class="field">
+                }
+                else
+                {
+
+                    for (int i = 0; i < 4; i++)
+                    {
+
+
+                        <div class="field">
+                            <div class="brick player1" id="piece @i"></div>
+                        </div>
+                    }
+                }
+
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 4; i++)
+            {
+
+
+                <div class="field">
+                    <div class="brick player1" id="piece @i"></div>
+                </div>
+            }
+
+        }
+
+
+        @*<div class="field">
             <div class="brick player1" id="piece2"></div>
         </div>
         <div class="field">
@@ -135,7 +174,7 @@
         </div>
         <div class="field">
             <div class="brick player1" id="piece4"></div>
-        </div>
+        </div>*@
     </div>
 
     <div class="start player2">

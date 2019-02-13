@@ -157,8 +157,8 @@ namespace Hackerman_WebbApp.Controllers
             output.Player = JsonConvert.DeserializeObject<Player>(restResponse.Content);
 
            // output.MovePiece.PlayerId = output.Player.Id;
-            output.MovePiece.PieceId = htmlModel.MovePiece.PieceId;
-            output.MovePiece.NumberOfFields = 5;
+            output.MovePiece.PieceId = htmlModel.MovePiece.PieceId-1;
+            output.MovePiece.NumberOfFields = htmlModel.DiceThrow;
             var response2 = new RestRequest($"api/ludo/{gameId}", Method.PUT);
             response2.AddJsonBody(output.MovePiece);
             var restResponse2 = await client.ExecuteTaskAsync(response2);
