@@ -57,7 +57,7 @@ namespace Hackerman_WebbApp.Controllers
             var gameId = HttpContext.Session.GetInt32("game");
 
             await GetAddPlayer.AddPlayer(client, (int)gameId, player);
-            GameModel output =  await GetGameInfo.GetGame(client, (int)gameId);
+            GameModel output = await GetGameInfo.GetGame(client, (int)gameId);
 
             output.PlayerList = await GetPlayerInfo.GetPlayerPosition((int)gameId, output.NumberOfPlayers, client);
             output.Player = new Player() { Id = player.Id + 1 };
@@ -106,11 +106,12 @@ namespace Hackerman_WebbApp.Controllers
         public async Task<IActionResult> RollDice()
         {
             var gameId = HttpContext.Session.GetInt32("game");
-            GameModel output = new GameModel
-            {
-                Player = await GetCurrentPlayer.GetPlayer(client, (int)gameId, counter),
-                DiceThrow = await GetDiceThrow.RollDice(client)
-            };
+            GameModel output = await GetGameInfo.GetGame(client, (int)gameId);
+
+            output.Player = await GetCurrentPlayer.GetPlayer(client, (int)gameId, counter);
+            output.DiceThrow = await GetDiceThrow.RollDice(client);
+
+            output.PlayerList = await GetPlayerInfo.GetPlayerPosition((int)gameId, output.NumberOfPlayers, client);
             return View("gameboard", output);
         }
 
@@ -135,6 +136,8 @@ namespace Hackerman_WebbApp.Controllers
             counter.UpdatePlayerTurn(output.NumberOfPlayers);
 
             output.Player = output.PlayerList[counter.WhosTurn];
+
+            ModifyPlayerStartPosition.SetStartPosition(output);
 
             return View("Gameboard", output);
         }

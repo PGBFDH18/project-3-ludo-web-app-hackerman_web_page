@@ -14,7 +14,7 @@ namespace Hackerman_WebbApp.Models
         public string Name { get; set; }
         public Piece[] Piece { get; set; }
 
-
+        public int StartPosition { get; set; }
 
     }
 }

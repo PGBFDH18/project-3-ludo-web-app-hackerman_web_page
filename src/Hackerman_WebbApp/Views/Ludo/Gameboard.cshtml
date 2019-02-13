@@ -58,6 +58,23 @@
 
         @for (int i = 20; i <= 31; i++)
         {
+            bool piece = false;
+            if (Model.PlayerList != null)
+            {
+
+                for (int k = 0; k < Model.PlayerList.Count; k++)
+                {
+                    for (int y = 0; y < Model.PlayerList[k].Piece.Length; y++)
+                    {
+                        if (Model.PlayerList[k].Piece[y].Position + Model.PlayerList[k].StartPosition == i && Model.PlayerList[k].Piece[y].State == 1)
+                        {
+                            <div class="brick player1" id="piece @i"></div>
+                            piece = true;
+                        }
+                    }
+
+                }
+            }
             if (i == 26)
             {
                 <div class="field player4" id="tile26"></div>
@@ -66,8 +83,11 @@
                     <div class="field player4" id="b @j"></div>
                 }
             }
+            if (!piece)
+            {
+                <div class="field" id="tile @i"></div>
 
-            <div class="field" id="tile @i"></div>
+            }
         }
 
     </div>
@@ -122,102 +142,132 @@
 
     <div class="goal"></div>
     <div class="start player1">
-        @if (Model.PlayerList != null)
+        @for (int i = 1; i <= 4; i++)
         {
-            for (int j = 0; j < Model.PlayerList.Count; j++)
+            if (Model.PlayerList != null)
             {
-                if (Model.PlayerList[j].Color == "Red")
+                for (int j = 0; j < Model.PlayerList.Count; j++)
                 {
-                    for (int k = 0; k < Model.PlayerList[j].Piece.Length; k++)
+                    if (Model.PlayerList[j].Color == "Red")
                     {
-                        if (Model.PlayerList[j].Piece[k].State != 0)
+                        if (Model.PlayerList[j].Piece[i - 1].State == 0)
                         {
-                            <div class="field" id="piece @j"></div>
+                            <div class="field">
+                                <div class="brick player1" id="piece @i"></div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="field"></div>
                         }
                     }
-
                 }
-                else
-                {
-
-                    for (int i = 0; i < 4; i++)
-                    {
-
-
-                        <div class="field">
-                            <div class="brick player1" id="piece @i"></div>
-                        </div>
-                    }
-                }
-
             }
-        }
-        else
-        {
-            for (int i = 0; i < 4; i++)
+
+            else
             {
-
-
                 <div class="field">
                     <div class="brick player1" id="piece @i"></div>
                 </div>
             }
-
         }
-
-
-        @*<div class="field">
-            <div class="brick player1" id="piece2"></div>
-        </div>
-        <div class="field">
-            <div class="brick player1" id="piece3"></div>
-        </div>
-        <div class="field">
-            <div class="brick player1" id="piece4"></div>
-        </div>*@
     </div>
 
     <div class="start player2">
-        <div class="field" id="p2piece1" onclick="MovePiece()">
-            <div class="brick player2" id="piece1"></div>
-        </div>
-        <div class="field">
-            <div class="brick player2" id="piece2"></div>
-        </div>
-        <div class="field">
-            <div class="brick player2" id="piece3"></div>
-        </div>
-        <div class="field">
-            <div class="brick player2" id="piece4"></div>
-        </div>
+        @for (int i = 1; i <= 4; i++)
+        {
+            if (Model.PlayerList != null)
+            {
+                for (int j = 0; j < Model.PlayerList.Count; j++)
+                {
+                    if (Model.PlayerList[j].Color == "Green")
+                    {
+                        if (Model.PlayerList[j].Piece[i - 1].State == 0)
+                        {
+                            <div class="field">
+                                <div class="brick player2" id="piece @i"></div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="field"></div>
+                        }
+                    }
+                }
+            }
+
+            else
+            {
+                <div class="field">
+                    <div class="brick player2" id="piece @i"></div>
+                </div>
+            }
+        }
+
     </div>
     <div class="start player3">
-        <div class="field">
-            <div class="brick player3" id="piece1"></div>
-        </div>
-        <div class="field">
-            <div class="brick player3" id="piece2"></div>
-        </div>
-        <div class="field">
-            <div class="brick player3" id="piece3"></div>
-        </div>
-        <div class="field">
-            <div class="brick player3" id="piece4"></div>
-        </div>
+        @for (int i = 1; i <= 4; i++)
+        {
+            if (Model.PlayerList != null)
+            {
+                for (int j = 0; j < Model.PlayerList.Count; j++)
+                {
+                    if (Model.PlayerList[j].Color == "Yellow")
+                    {
+                        if (Model.PlayerList[j].Piece[i - 1].State == 0)
+                        {
+                            <div class="field">
+                                <div class="brick player3" id="piece @i"></div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="field"></div>
+                        }
+                    }
+                }
+            }
+
+            else
+            {
+                <div class="field">
+                    <div class="brick player3" id="piece @i"></div>
+                </div>
+            }
+        }
+
     </div>
     <div class="start player4">
-        <div class="field">
-            <div class="brick player4" id="piece1"></div>
-        </div>
-        <div class="field">
-            <div class="brick player4" id="piece2"></div>
-        </div>
-        <div class="field">
-            <div class="brick player4" id="piece3"></div>
-        </div>
-        <div class="field">
-            <div class="brick player4" id="piece4"></div>
-        </div>
+        @for (int i = 1; i <= 4; i++)
+        {
+            if (Model.PlayerList != null)
+            {
+                for (int j = 0; j < Model.PlayerList.Count; j++)
+                {
+                    if (Model.PlayerList[j].Color == "Blue")
+                    {
+                        if (Model.PlayerList[j].Piece[i - 1].State == 0)
+                        {
+                            <div class="field">
+                                <div class="brick player4" id="piece @i"></div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="field"></div>
+                        }
+                    }
+                }
+            }
+
+            else
+            {
+                <div class="field">
+                    <div class="brick player4" id="piece @i"></div>
+                </div>
+            }
+        }
+
     </div>
 </div>
 <script>window.onload=DiceThrow(@Model.DiceThrow)</script>
