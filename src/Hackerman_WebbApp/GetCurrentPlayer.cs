@@ -11,12 +11,12 @@ namespace Hackerman_WebbApp
     public static class GetCurrentPlayer
     {
 
-        public static async Task<GameModel> GetPlayer(IRestClient client, int gameId, IPlayerCounter counter)
+        public static async Task<Player> GetPlayer(IRestClient client, int gameId, IPlayerCounter counter)
         {
             var response = new RestRequest($"api/ludo/{gameId}/players/{counter.WhosTurn}", Method.GET);
             var restResponse = await client.ExecuteTaskAsync(response);
-            GameModel output = new GameModel();
-            output.Player = JsonConvert.DeserializeObject<Player>(restResponse.Content);
+            Player output = new Player();
+            output = JsonConvert.DeserializeObject<Player>(restResponse.Content);
             return output;
         }
 
