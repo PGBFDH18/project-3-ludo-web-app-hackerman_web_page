@@ -10,9 +10,7 @@ namespace Hackerman_WebbApp.Models
     {
         public int Id { get; set; }
         public string Color { get; set; }
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-        [Required]
-        [StringLength(30, MinimumLength = 1)]
+
         public string Name { get; set; }
         public Piece[] Piece { get; set; }
     }

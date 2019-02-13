@@ -12,12 +12,11 @@
     <div class="newgamecontainerLeft">
         <div style="text-align:center">
             <h2 style="text-align:center">Add player</h2>
-            <form action="addplayer" method="post">
+            <form action="addplayer" method="post" onsubmit="">
                 <div id="playernameandcolor">
                     <input asp-for="Id" type="hidden" value="@Model.Id" />
-                    <input id="playername" asp-for="Name" type="text" placeholder="Write name" />
+                    <input id="playername" asp-for="Name" type="text" placeholder="Write name" required pattern="[a-zA-ZäöüßÄÖÜ]+" title="Only letters" />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <span asp-validation-for="Name" class="text-danger"></span>
                     <select asp-for="Color" id="playercolor">
                         <option value="Red">Red</option>
                         <option value="Blue">Blue</option>
@@ -75,7 +74,7 @@ function showAllPlayersFromStorage() {
     window.onload = showAllPlayersFromStorage();
 
     function clearCache() {
-    location.reload(true);
+    window.location.reload(true);   
     }
 
 </script>
