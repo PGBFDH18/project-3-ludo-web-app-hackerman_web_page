@@ -17,7 +17,11 @@
     </div>
     <div>
         @*<input id="dicevalue" type="text" placeholder="number" />*@
-        <a class="button" href="#" onclick="DiceThrow();">Click to update dice</a>
+        <form action="rolldice" method="get">
+            @*<a class="button" href="#" onclick="DiceThrow(@Model.DiceThrow);">Click to update dice</a>*@
+            <input type="submit" class="button" value="Roll Dice" />
+
+        </form>
     </div>
     <div>
         <form action="movepiece" method="get">
@@ -177,3 +181,4 @@
         </div>
     </div>
 </div>
+<script>window.onload=DiceThrow(@Model.DiceThrow)</script>

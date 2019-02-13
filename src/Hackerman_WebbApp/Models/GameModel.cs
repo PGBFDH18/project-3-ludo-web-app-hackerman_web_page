@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Hackerman_WebbApp.Models
 {
-    public class GameModel 
+    public class GameModel
     {
         public int GameId { get; set; }
         public string State { get; set; }
@@ -17,5 +17,7 @@ namespace Hackerman_WebbApp.Models
         public List<Player> PlayerList { get; set; }
 
         public PlayerCounter WhosTurn { get; set; }
+
+        public int DiceThrow { get; set; }
     }
 }

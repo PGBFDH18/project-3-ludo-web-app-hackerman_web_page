@@ -117,6 +117,15 @@ namespace Hackerman_WebbApp.Controllers
             return View("Gameboard");
         }
 
+        [HttpGet("rolldice")]
+        public async Task<IActionResult> RollDice()
+        {
+            var gameId = HttpContext.Session.GetInt32("game");
+
+            GameModel output = await GetCurrentPlayer.GetPlayer(client, (int)gameId, counter);
+            output.DiceThrow = await GetDiceThrow.RollDice(client);
+            return View("gameboard", output);
+        }
 
         [HttpGet("allplayerinfo")]
         public async Task<IActionResult> AllPlayerInfo(int playerId)
