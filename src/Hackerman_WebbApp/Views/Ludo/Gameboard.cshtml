@@ -36,52 +36,52 @@
 
 <div class="board">
     <div class="wing" id="leftWing">
-        @for (int i = 7; i <= 19; i++)
+        @for (int i = 7; i <= 18; i++)
         {
             if (i == 13)
             {
                 <div class="field player2" id="tile13"></div>
                 for (int j = 1; j <= 5; j++)
                 {
-                    <div class="field player2" id="g@j"></div>
+                    <div class="field player2" id="g @j"></div>
 
                 }
             }                                 
-            <div class="field" id="tile@i"></div>            
+            <div class="field" id="tile @i"></div>            
         }
                
     </div>
     <div class="wing" id="topWing">
 
-        @for (int i = 20; i <= 32; i++)
+        @for (int i = 20; i <= 31; i++)
         {
             if (i == 26)
             {
                 <div class="field player4" id="tile26"></div>
                 for (int j = 1; j <= 5; j++)
                 {
-                    <div class="field player4" id="b@j"></div>
+                    <div class="field player4" id="b @j"></div>
                 }
             }
 
-            <div class="field" id="tile@i"></div>
+            <div class="field" id="tile @i"></div>
         }
 
     </div>
     <div class="wing" id="rightWing">
 
-        @for (int i = 33; i <= 45; i++)
+        @for (int i = 33; i <= 44; i++)
         {
             if (i == 39)
             {
-                <div class="field player3" id="tile@i"></div>
+                <div class="field player3" id="tile @i"></div>
                 for (int j = 1; j <= 5; j++)
                 {
-                    <div class="field player3" id="gu@j"></div>
+                    <div class="field player3" id="gu @j"></div>
                 }
             }
 
-            <div class="field" id="tile@i"></div>
+            <div class="field" id="tile @i"></div>
             
         }
                           
@@ -93,24 +93,24 @@
         {
             if (i == 52)
             {
-                <div class="field player1" id="tile@i"></div>
+                <div class="field player1" id="tile @i"></div>
                 for (int j = 1; j <= 5; j++)
                 {
-                    <div class="field player1" id="r@j"></div>
+                    <div class="field player1" id="r @j"></div>
 
                 }
 
             }
 
-            <div class="field" id="tile@i"></div>
+            <div class="field" id="tile @i"></div>
 
 
         }
-        @for (int i = 1; i <= 6; i++)
+        @for (int i = 1; i <= 5; i++)
         {
 
 
-            <div class="field" id="tile@i"></div>
+            <div class="field" id="tile @i"></div>
 
 
         }
