@@ -181,3 +181,11 @@ input[type=text], select, textarea {
     padding-top: 30px;
     padding-bottom: 40px;
 }
+#listofallgameIDsContainer {
+    margin: auto;
+    width: 40%;
+    height: auto;
+    overflow: auto;
+
+}
+

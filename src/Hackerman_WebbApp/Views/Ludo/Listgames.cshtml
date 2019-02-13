@@ -3,15 +3,21 @@
     ViewData["Title"] = "ListOfGames";
 }
 
-<h1>ListOfGames</h1>
+<h1 id="newgameHeader" class="latoFont">List of Games</h1>
+<hr id="newgameHeaderLine" />
 
-@for (int i = 0; i < Model.ListOfAllGames.Length; i++)
-{
-    <p>@Model.ListOfAllGames[i]</p>
-}
+<div id="listofallgameIDsContainer">
+    @for (int i = 0; i < Model.ListOfAllGames.Length; i++)
+    {
+        <form>
+            <p>@Model.ListOfAllGames[i]</p>
+        </form>
+    }
+</div>
 
-    <footer class="footer">
-        <div style="text-align:center">
-            <h4>© 2019 Hackerman Studios</h4>
-        </div>
-    </footer>
+<footer class="footer">
+    <div class="byLine">
+        <h4>© 2019 Hackerman Studios</h4>
+        <p><a href="https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page">See our github repo here  <i class="fab fa-github"></i></a></p>
+    </div>
+</footer>
