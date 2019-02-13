@@ -33,37 +33,35 @@ namespace Hackerman_WebbApp.Controllers
         public async Task<IActionResult> NewGame()
         {
             byte[] gameId;
+            GameModel game = new GameModel();
             if (!HttpContext.Session.TryGetValue("game", out gameId))
             {
                 var response = new RestRequest("api/ludo", Method.POST);
                 var restResponse = await client.ExecuteTaskAsync(response);
                 var output = restResponse.Content;
-                GameModel game = new GameModel() { GameId = int.Parse(output) };
+                game.GameId = int.Parse(output);
                 HttpContext.Session.SetInt32("game", game.GameId);
                 Log.Information("Game was created with ID: {gameId}", game.GameId);
             }
+            game.Player = new Player() { Id = 0 };
 
-            return View(new Player() { Id = 0 });
+            return View(game);
         }
 
         [HttpPost("addplayer")]
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> AddPlayer(Player player)
         {
-            if (ModelState.IsValid)
-            {
-                HttpContext.Session.SetString("name", player.Name);
-                var gameId = HttpContext.Session.GetInt32("game");
 
+            HttpContext.Session.SetString("name", player.Name);
+            var gameId = HttpContext.Session.GetInt32("game");
 
-                var response = new RestRequest($"api/ludo/{gameId}/players", Method.POST);
-                response.AddJsonBody(player);
-                var restResponse = await client.ExecuteTaskAsync(response);
-            }
+            await GetAddPlayer.AddPlayer(client, (int)gameId, player);
+            GameModel output =  await GetGameInfo.GetGame(client, (int)gameId);
 
-
-
-            return View("Newgame", new Player() { Id=player.Id+1 });
+            output.PlayerList = await GetPlayerInfo.GetPlayerPosition((int)gameId, output.NumberOfPlayers, client);
+            output.Player = new Player() { Id = player.Id + 1 };
+            return View("Newgame", output);
 
         }
 
@@ -86,7 +84,7 @@ namespace Hackerman_WebbApp.Controllers
             var response = new RestRequest($"api/ludo/{gameId}", Method.GET);
             var restResponse = await client.ExecuteTaskAsync(response);
             GameModel output = JsonConvert.DeserializeObject<GameModel>(restResponse.Content);
-            
+
             return output;
         }
 
@@ -103,31 +101,32 @@ namespace Hackerman_WebbApp.Controllers
             output.Player = JsonConvert.DeserializeObject<Player>(restResponse2.Content);
             return View(output);
         }
-        
+
         [HttpGet("rolldice")]
         public async Task<IActionResult> RollDice()
         {
             var gameId = HttpContext.Session.GetInt32("game");
-            GameModel output = new GameModel();
-
-            output.Player = await GetCurrentPlayer.GetPlayer(client, (int)gameId, counter);
-            output.DiceThrow = await GetDiceThrow.RollDice(client);
+            GameModel output = new GameModel
+            {
+                Player = await GetCurrentPlayer.GetPlayer(client, (int)gameId, counter),
+                DiceThrow = await GetDiceThrow.RollDice(client)
+            };
             return View("gameboard", output);
         }
-        
+
         [HttpGet("movepiece")]
         public async Task<IActionResult> MovePiece(GameModel htmlModel)
         {
             var gameId = HttpContext.Session.GetInt32("game");
-            
+
             GameModel output = await GetGameInfo.GetGame(client, (int)gameId);
             output.MovePiece = new MovePiece();
             output.WhosTurn = new PlayerCounter();
             output.MovePiece.PlayerId = counter.WhosTurn;
-           
+
             output.Player = await GetCurrentPlayer.GetPlayer(client, (int)gameId, counter);
-            
-            output.MovePiece.PieceId = htmlModel.MovePiece.PieceId-1;
+
+            output.MovePiece.PieceId = htmlModel.MovePiece.PieceId - 1;
             output.MovePiece.NumberOfFields = htmlModel.DiceThrow;
             GetMovePiece.MovePiece(client, output.MovePiece, (int)gameId);
 

@@ -1,4 +1,4 @@
-﻿@model Hackerman_WebbApp.Models.Player
+﻿@model Hackerman_WebbApp.Models.GameModel
 @{
     ViewData["Title"] = "NewGame";
 }
@@ -14,10 +14,10 @@
             <h2 style="text-align:center">Add player</h2>
             <form action="addplayer" method="post" onsubmit="">
                 <div id="playernameandcolor">
-                    <input asp-for="Id" type="hidden" value="@Model.Id" />
-                    <input id="playername" asp-for="Name" type="text" placeholder="Write name" required pattern="[a-zA-ZäöüßÄÖÜ]+" title="Only letters" />
+                    <input asp-for="Player.Id" type="hidden" value="@Model.Player.Id" />
+                    <input id="playername" asp-for="Player.Name" type="text" placeholder="Write name" required pattern="[a-zA-ZäöüßÄÖÜ]+" title="Only letters" />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <select asp-for="Color" id="playercolor">
+                    <select asp-for="Player.Color" id="playercolor">
                         <option value="Red">Red</option>
                         <option value="Blue">Blue</option>
                         <option value="Green">Green</option>
