@@ -42,6 +42,7 @@ namespace Hackerman_WebbApp.Controllers
                 game.GameId = int.Parse(output);
                 HttpContext.Session.SetInt32("game", game.GameId);
                 Log.Information("Game was created with ID: {gameId}", game.GameId);
+                Log.Information(HttpContext.Connection.LocalIpAddress.ToString());
             }
             game.Player = new Player() { Id = 0 };
 
