@@ -159,6 +159,9 @@ namespace Hackerman_WebbApp.Controllers
         [HttpPost("joingame")]
         public async Task<IActionResult> JoinGame(int gameId)
         {
+
+            HttpContext.Session.SetInt32("game", gameId);
+
             var response = new RestRequest($"api/ludo/{gameId}", Method.GET);
             var restResponse = await client.ExecuteTaskAsync(response);
             GameModel output = JsonConvert.DeserializeObject<GameModel>(restResponse.Content);
