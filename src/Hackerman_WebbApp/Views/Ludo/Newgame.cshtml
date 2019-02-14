@@ -16,13 +16,7 @@
                 <div id="playernameandcolor">
                     <input asp-for="Player.Id" type="hidden" value="@Model.Player.Id" />
                     <input id="playername" asp-for="Player.Name" type="text" placeholder="Write name" maxlength="15" required pattern="[a-zA-ZäöüßÄÖÜ]+" title="Only letters" />
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <select asp-for="Player.Color" id="playercolor">
-                        <option value="Red">Red</option>
-                        <option value="Blue">Blue</option>
-                        <option value="Green">Green</option>
-                        <option value="Yellow">Yellow</option>
-                    </select>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>                  
                 </div>
                 <input id="addplayerButton" type="submit" class="button" value="Add player" />
             </form>

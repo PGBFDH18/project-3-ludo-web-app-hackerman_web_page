@@ -54,7 +54,7 @@ namespace Hackerman_WebbApp.Controllers
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> AddPlayer(Player player)
         {
-
+            PlayerColor.SetPlayerColor(player);
             HttpContext.Session.SetString("name", player.Name);
             var gameId = HttpContext.Session.GetInt32("game");
 
