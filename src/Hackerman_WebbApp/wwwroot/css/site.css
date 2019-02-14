@@ -189,3 +189,19 @@ input[type=text], select, textarea {
 
 }
 
+.displayplayercontainer {
+    width: 30%;
+    height: 6%;
+    margin: auto;
+    margin-bottom:10px;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 6px;
+    padding: 6px;
+
+}
+
+.displayplayername{
+    font-size: 20px;
+}
+

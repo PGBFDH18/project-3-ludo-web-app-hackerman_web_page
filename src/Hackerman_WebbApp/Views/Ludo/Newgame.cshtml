@@ -15,7 +15,7 @@
             <form action="addplayer" method="post" onsubmit="">
                 <div id="playernameandcolor">
                     <input asp-for="Player.Id" type="hidden" value="@Model.Player.Id" />
-                    <input id="playername" asp-for="Player.Name" type="text" placeholder="Write name" required pattern="[a-zA-ZäöüßÄÖÜ]+" title="Only letters" />
+                    <input id="playername" asp-for="Player.Name" type="text" placeholder="Write name" maxlength="15" required pattern="[a-zA-ZäöüßÄÖÜ]+" title="Only letters" />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <select asp-for="Player.Color" id="playercolor">
                         <option value="Red">Red</option>
@@ -36,8 +36,9 @@
             {
                 @foreach (var item in Model.PlayerList)
                 {
-
-                    <h3 style="color: @item.Color">@item.Name</h3>
+                    <div style="border-color: @item.Color" class="displayplayercontainer">
+                        <div class="displayplayername" style="padding-top:4px">@item.Name</div>
+                    </div>
                 }
             }
         </div>
