@@ -24,7 +24,7 @@
                         <option value="Yellow">Yellow</option>
                     </select>
                 </div>
-                <input id="addplayerButton" type="submit" class="button" value="Add player" onclick="addPlayerOnPage()" />
+                <input id="addplayerButton" type="submit" class="button" value="Add player" />
             </form>
         </div>
     </div>
@@ -37,7 +37,7 @@
                 @foreach (var item in Model.PlayerList)
                 {
 
-                    <h3>@item.Name</h3>
+                    <h3 style="color: @item.Color">@item.Name</h3>
                 }
             }
         </div>
