@@ -41,8 +41,9 @@ namespace Hackerman_WebbApp.Controllers
                 var output = restResponse.Content;
                 game.GameId = int.Parse(output);
                 HttpContext.Session.SetInt32("game", game.GameId);
-                Log.Information("Game was created with ID: {gameId}", game.GameId);
-                Log.Information(HttpContext.Connection.LocalIpAddress.ToString());
+                Log.Information($"Client connected on remote IP{HttpContext.Connection.RemoteIpAddress.ToString()}");
+                Log.Information($"Game was created with ID: {game.GameId}");
+
             }
             game.Player = new Player() { Id = 0 };
 
@@ -113,6 +114,8 @@ namespace Hackerman_WebbApp.Controllers
             output.DiceThrow = await GetDiceThrow.RollDice(client);
 
             output.PlayerList = await GetPlayerInfo.GetPlayerPosition((int)gameId, output.NumberOfPlayers, client);
+            ModifyPlayerStartPosition.SetStartPosition(output);
+
             return View("gameboard", output);
         }
 
@@ -130,7 +133,7 @@ namespace Hackerman_WebbApp.Controllers
 
             output.MovePiece.PieceId = htmlModel.MovePiece.PieceId - 1;
             output.MovePiece.NumberOfFields = htmlModel.DiceThrow;
-            GetMovePiece.MovePiece(client, output.MovePiece, (int)gameId);
+            await GetMovePiece.MovePiece(client, output.MovePiece, (int)gameId);
 
             output.PlayerList = await GetPlayerInfo.GetPlayerPosition((int)gameId, output.NumberOfPlayers, client);
 

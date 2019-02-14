@@ -9,11 +9,12 @@ namespace Hackerman_WebbApp
 {
     public static class GetMovePiece
     {
-        public static async void MovePiece(IRestClient client, MovePiece piece, int gameId)
+        public static async Task<bool> MovePiece(IRestClient client, MovePiece piece, int gameId)
         {
             var response = new RestRequest($"api/ludo/{gameId}", Method.PUT);
             response.AddJsonBody(piece);
             var restResponse = await client.ExecuteTaskAsync(response);
+            return true;
         }
     }
 }
