@@ -16,16 +16,16 @@ namespace Hackerman_WebbApp
                 switch (item.Color)
                 {
                     case "Red":
-                        item.StartPosition = 46;
+                        item.StartPosition = 0;
                         break;
                     case "Green":
-                        item.StartPosition = 7;
+                        item.StartPosition = 13;
                         break;
                     case "Yellow":
-                        item.StartPosition = 33;
+                        item.StartPosition = 32;
                         break;
                     case "Blue":
-                        item.StartPosition = 20;
+                        item.StartPosition = 39;
                         break;
                 }
             }
