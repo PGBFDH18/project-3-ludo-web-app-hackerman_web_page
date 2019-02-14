@@ -9,10 +9,10 @@
 <div id="listofallgameIDsContainer">
     @for (int i = 0; i < Model.ListOfAllGames.Length; i++)
     {
-        <form class="gameForm" method="post" action="JoinGame">
-            <input type="hidden" value="@Model.ListOfAllGames[i]" />
+        <form class="gameForm" method="post" action="joingame">
+            <input type="hidden" name="gameId" value="@Model.ListOfAllGames[i]" />
             <label>@Model.ListOfAllGames[i]</label>
-            <button class="button">Join game</button>
+            <button class="button" type="submit">Join game</button>
         </form>
     }
 </div>

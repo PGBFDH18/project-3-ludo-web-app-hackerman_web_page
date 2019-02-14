@@ -155,5 +155,21 @@ namespace Hackerman_WebbApp.Controllers
 
             return Ok();
         }
+
+        [HttpPost("joingame")]
+        public async Task<IActionResult> JoinGame(int gameId)
+        {
+            var response = new RestRequest($"api/ludo/{gameId}", Method.GET);
+            var restResponse = await client.ExecuteTaskAsync(response);
+            GameModel output = JsonConvert.DeserializeObject<GameModel>(restResponse.Content);
+
+            output.WhosTurn = new PlayerCounter();
+
+            output.Player = await GetCurrentPlayer.GetPlayer(client, gameId, counter);
+
+            output.PlayerList = await GetPlayerInfo.GetPlayerPosition(gameId, output.NumberOfPlayers, client);
+
+            return View("gameboard", output);
+        }
     }
 }
