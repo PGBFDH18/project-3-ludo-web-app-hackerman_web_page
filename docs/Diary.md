@@ -24,7 +24,7 @@ The day started of by changing the form where you enter the players name and col
 Added logging to Controller aswell as when you add a player it will show up under *Added Players*.
 
 ### Day 8
-With the API basically done we will now move on to making the game playable. We tried to get the position of a specific piece from a player but not the result result we were looking for. So most of the day were spent on forums to find a soluton for this.
+With the API basically done we will now move on to making the game playable. We tried to get the position of a specific piece from a player but not the result we were looking for. So most of the day were spent on forums to find a soluton for this.
 
 ### Day 9
 We started of where we left of yesterday, by trying to get information(position) from a piece. We also went back to the gameboard and "implementing" the game logic to the visible gameboard. For example, we want to move pieces out to the gameboard, for now we can only hardcode it to move to a specific tile.
@@ -32,3 +32,5 @@ We started of where we left of yesterday, by trying to get information(position)
 ### Day 10
 We had a small breakthrough in moving the pieces out to the gameboard. We added incomplete functions that removes the pieces out of the nest, this happens after you roll the dice and press "Move Piece". We are still working on this part. The interface has been slightly updated by adding colors to the player's name, so if you chose the color red, your name will be red. Our javasript has now basically been completely removed and replaced by razor, simply because we realized that we didn't need that much javascript in our project (but we also got some feedback from out teacher). Smaller things like html code, SOLID and changes to our code was also added.
 
+### Day 11
+One of the things we started with was to make the website more responsive to different devices. For example if you use a mobile device, we want the buttons and the layout to adapt to the screen so the buttons/text doesn't overlap with eachother. We also made the website look better when you make the window bigger and smaller. And just like yesterday we did another small breakthrough in how to move the gamepieces on the board.
