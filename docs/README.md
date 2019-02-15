@@ -1,7 +1,7 @@
 ## Ludo Game - Hackerman Group
 A simple web app to play Ludo with friends locally or online.
 
-# ![pageres](https://image.spreadshirtmedia.net/image-server/v1/mp/compositions/T56A1MPA89PT17X61Y27D151018786S100/views/1,width=1200,height=630,appearanceId=1,backgroundColor=F2F2F2,version=1752336233/hacker-man-tote-bag.jpg)
+# ![Hackerman Studios](https://raw.githubusercontent.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page/Aprove-or-die-2/logo/hackerman2.PNG)
 
 ## Motivation
 Project 3(final) for backend programming in .Net MVC.
