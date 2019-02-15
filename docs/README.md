@@ -9,7 +9,11 @@ Ludo game school project for Teknikhögskolan.
 
 ## 
 ## Build status
-[![Build Status](https://travis-ci.org/sindresorhus/pageres.svg?branch=master)](https://travis-ci.org/sindresorhus/pageres) [![Coverage Status](https://coveralls.io/repos/sindresorhus/pageres/badge.svg?branch=master)](https://coveralls.io/r/sindresorhus/pageres?branch=master)
+##### Build status for API
+[![Build status](https://dev.azure.com/HackermanWebApp/Hackerman_Web_App/_apis/build/status/Api%20build)](https://dev.azure.com/HackermanWebApp/Hackerman_Web_App/_build/latest?definitionId=2)
+
+#### Build status for Web App
+[![Build status](https://dev.azure.com/HackermanWebApp/Hackerman_Web_App/_apis/build/status/Web%20App)](https://dev.azure.com/HackermanWebApp/Hackerman_Web_App/_build/latest?definitionId=1)
 ## How to play
 Game is published. <br>
 URL: https://ludewebapp.azurewebsites.net/ <br>
