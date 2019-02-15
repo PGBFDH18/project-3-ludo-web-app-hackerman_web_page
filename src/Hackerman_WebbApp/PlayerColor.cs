@@ -19,11 +19,11 @@ namespace Hackerman_WebbApp
                 case 1:
                     player.Color = "Green";
                     break;
-                case 3:
-                    player.Color = "Yellow";
-                    break;
                 case 2:
                     player.Color = "Blue";
+                    break;
+                case 3:
+                    player.Color = "Yellow";
                     break;
             }
 

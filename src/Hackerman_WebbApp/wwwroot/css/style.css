@@ -164,11 +164,11 @@ html{
   }
   
   .player3{
-    background: orange;
+    background: blue;
   }
   
   .player4{
-    background: blue;
+    background: orange;
   }
   
   .start.player1{
@@ -183,12 +183,12 @@ html{
   
   .start.player3{
     left:540px;
-    top:540px;
+    top:0px;
   }
   
   .start.player4{
     left:540px;
-    top:0px;
+    top:540px;
   }
   
   .test{
