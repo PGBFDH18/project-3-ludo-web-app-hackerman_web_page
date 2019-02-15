@@ -8,6 +8,7 @@ using RestSharp;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using Serilog;
+using Hackerman_WebbApp.ApiDataRequest;
 
 namespace Hackerman_WebbApp.Controllers
 {
@@ -140,7 +141,7 @@ namespace Hackerman_WebbApp.Controllers
             counter.UpdatePlayerTurn(output.NumberOfPlayers);
 
             output.Player = output.PlayerList[counter.WhosTurn];
-
+            output.Winner = await GetWinner.GetPlayer(client, (int)gameId);
             ModifyPlayerStartPosition.SetStartPosition(output);
 
             return View("Gameboard", output);

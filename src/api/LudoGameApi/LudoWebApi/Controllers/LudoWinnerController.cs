@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LudoGameEngine;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,10 +26,10 @@ namespace LudoWebApi.Controllers
         /// <param name="gameId"></param>
         /// <returns></returns>
         [HttpGet("{gameId}/winner")]
-        public string Get(int gameId)
+        public Player Get(int gameId)
         {
             var winner = ludoGames[gameId].GetWinner();
-            return winner == null ? "N/A" : winner.Name;
+            return winner == null ? null : winner;
         }
     }
 }

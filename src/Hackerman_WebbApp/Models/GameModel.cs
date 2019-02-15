@@ -19,5 +19,6 @@ namespace Hackerman_WebbApp.Models
         public PlayerCounter WhosTurn { get; set; }
 
         public int DiceThrow { get; set; }
+        public Player Winner { get; set; }
     }
 }
