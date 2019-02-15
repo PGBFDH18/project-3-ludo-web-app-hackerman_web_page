@@ -123,4 +123,10 @@
   <data name="Hackerman Ludo" xml:space="preserve">
     <value>Hackermannens Fia</value>
   </data>
+  <data name="Play" xml:space="preserve">
+    <value>Spela</value>
+  </data>
+  <data name="Rules" xml:space="preserve">
+    <value>Regler</value>
+  </data>
 </root>
