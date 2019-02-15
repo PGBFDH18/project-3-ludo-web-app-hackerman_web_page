@@ -105,14 +105,16 @@ html{
     border: 2px solid black;
     position: absolute;
   }
-  
-  .brick{
+
+.brick {
     margin: 9px;
     width: 40px;
-    height: 40px;  
+    height: 40px;
     border-radius: 50px;
     display: inline-block;
-  }
+    padding: 2px;
+    background-color: antiquewhite;
+}
   
   .start{
     width:160px;
@@ -170,7 +172,7 @@ html{
   .player4{
     background: orange;
   }
-  
+    
   .start.player1{
     left:0px;
     top:540px;
