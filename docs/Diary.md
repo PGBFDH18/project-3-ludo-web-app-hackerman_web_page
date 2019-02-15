@@ -24,7 +24,7 @@ The day started of by changing the form where you enter the players name and col
 Added logging to Controller aswell as when you add a player it will show up under *Added Players*.
 
 ### Day 8 - Feb 11
-With the API basically done we will now move on to making the game playable. We tried to get the position of a specific piece from a player but not the result we were looking for. So most of the day were spent on forums to find a soluton for this. UnitTests were also added to the project
+With the API basically done we will now move on to making the game playable. We tried to get the position of a specific piece from a player but not the result we were looking for. So most of the day were spent on forums to find a soluton for this. UnitTests were also added to the project.
 
 ### Day 9 - *Feb 12*
 We started of where we left of yesterday, by trying to get information(position) from a piece. We also went back to the gameboard and "implementing" the game logic to the visible gameboard. For example, we want to move pieces out to the gameboard, for now we can only hardcode it to move to a specific tile. Fixed some of-by-one errors and changed a few lines of code of html to razor.
@@ -36,4 +36,5 @@ We had a small breakthrough in moving the pieces out to the gameboard. We added 
 One of the things we started with was to make the website more responsive to different devices. For example if you use a mobile device, we want the buttons and the layout to adapt to the screen so the buttons/text doesn't overlap with eachother. We also made the website look better when you make the window bigger and smaller. And just like yesterday we did another small breakthrough in how to move the gamepieces on the board.
 
 ### Day 12 - *Feb 15*
-
+After many days of working in school and outside of school we seem to be getting closer to the end of the project. Today we started looking at the VG criterias to see if we can add anything more to the project. We decided to add localization so that the Index/ can be translated to different languages. Everything from entering the website, creating a game and joining a game, to actually playing the game seem to be working fine now. We fixed minor bugs and fixes to the code, for example the dice could be rolled numerous times before you move your piece. The website was slighty updated by making it more responsive to mobile users, so that not only the Index is adapted to the screens but the *Add Player* page adapts aswell. 
+You can now win the game by making all your 4 pieces enter goal, when a piece reaches goal it will automatically be removed from the dropdown menu *Select Piece* so that you can't chose that piece again.
