@@ -26,6 +26,7 @@ namespace Hackerman_WebbApp.Controllers
 
         public IActionResult Index()
         {
+            Log.Information($"Client connected on remote IP{HttpContext.Connection.RemoteIpAddress.ToString()}");
             return View();
         }
 
@@ -41,8 +42,7 @@ namespace Hackerman_WebbApp.Controllers
                 var output = restResponse.Content;
                 game.GameId = int.Parse(output);
                 HttpContext.Session.SetInt32("game", game.GameId);
-                Log.Information($"Client connected on remote IP{HttpContext.Connection.RemoteIpAddress.ToString()}");
-                Log.Information($"Game was created with ID: {game.GameId}");
+                Log.Information($"GameID: {game.GameId} was created.(IP{HttpContext.Connection.RemoteIpAddress.ToString()})");
 
             }
             game.Player = new Player() { Id = 0 };
@@ -51,7 +51,6 @@ namespace Hackerman_WebbApp.Controllers
         }
 
         [HttpPost("addplayer")]
-        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> AddPlayer(Player player)
         {
             PlayerColor.SetPlayerColor(player);
@@ -60,6 +59,7 @@ namespace Hackerman_WebbApp.Controllers
 
             await GetAddPlayer.AddPlayer(client, (int)gameId, player);
             GameModel output = await GetGameInfo.GetGame(client, (int)gameId);
+            Log.Information($"GameID: {gameId} created a player named: {player.Name} with the color: {player.Color}(IP{HttpContext.Connection.RemoteIpAddress.ToString()})");
 
             output.PlayerList = await GetPlayerInfo.GetPlayerPosition((int)gameId, output.NumberOfPlayers, client);
             output.Player = new Player() { Id = player.Id + 1 };
