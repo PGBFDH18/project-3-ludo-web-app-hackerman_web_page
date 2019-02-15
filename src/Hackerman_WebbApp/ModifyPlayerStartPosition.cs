@@ -21,10 +21,10 @@ namespace Hackerman_WebbApp
                     case "Green":
                         item.StartPosition = 13;
                         break;
-                    case "Yellow":
-                        item.StartPosition = 32;
-                        break;
                     case "Blue":
+                        item.StartPosition = 26;
+                        break;
+                    case "Yellow":
                         item.StartPosition = 39;
                         break;
                 }
