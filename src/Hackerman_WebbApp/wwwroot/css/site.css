@@ -293,7 +293,7 @@ input[type=text], select, textarea {
 
     .newgamecontainer {
         width: 100%;
-        height: 75%;
+        height: 90%;
         position: relative;
         padding-top: 30px;
     }
@@ -307,8 +307,8 @@ input[type=text], select, textarea {
 @media (max-width: 600px) {
 
     .newgamecontainerLeft {
-        width: 50%;
-        float: left;
+        width: 100%;
+        /*float: left;*/
     }
 }
 
@@ -320,8 +320,8 @@ input[type=text], select, textarea {
 @media (max-width: 600px) {
 
     .newgamecontainerRight {
-        width: 50%;
-        float: right;
+        width: 100%;
+        /*float: right;*/
     }
 }
 
@@ -358,7 +358,7 @@ input[type=text], select, textarea {
 
     #newgameHeader {
         text-align: center;
-        font-size: 40px;
+        font-size: 20px;
         font-weight: bold;
         padding-bottom: 20px;
         padding-top: 30px;
@@ -394,8 +394,8 @@ input[type=text], select, textarea {
 @media (max-width: 600px) {
 
     #playernameandcolor {
-        padding-top: 30px;
-        padding-bottom: 40px;
+        padding-top: 0px;
+        padding-bottom: 20px;
     }
 }
 
@@ -455,3 +455,8 @@ input[type=text], select, textarea {
     }
 }
 
+.gameForm label {
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+}

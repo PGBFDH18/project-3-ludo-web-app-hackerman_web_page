@@ -1,8 +1,13 @@
 @model Hackerman_WebbApp.Models.GameModel
 @{
     ViewData["Title"] = "Gameboard";
+
 }
-<link type="text/css" rel="stylesheet" href="~/css/style.css" />
+
+@{
+    Layout = "_GameboardNewLayout";
+}
+
 <div class="gameInfo">
 
     <div class="currentPlayer">@Model.Player.Name</div>
@@ -59,7 +64,7 @@
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
-                <input id="movePiece" type="submit" class="button" value="Move Piece" disabled/>
+                <input id="movePiece" type="submit" class="button" value="Move Piece" disabled />
             </form>
         }
     </div>
