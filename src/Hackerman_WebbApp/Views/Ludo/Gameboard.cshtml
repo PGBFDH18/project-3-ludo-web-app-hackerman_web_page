@@ -1,5 +1,4 @@
-
-﻿@model Hackerman_WebbApp.Models.GameModel
+@model Hackerman_WebbApp.Models.GameModel
 @{
     ViewData["Title"] = "Gameboard";
 }
@@ -188,12 +187,12 @@
         {
             if (i == 1)
             {
-                <div class="field player4" id="tile 26"></div>
+                <div class="field player3" id="tile 26"></div>
 
             }
             else
             {
-                <div class="field player4" id="b @i"></div>
+                <div class="field player3" id="b @i"></div>
 
             }
 
@@ -270,13 +269,13 @@
         {
             if (i == 1)
             {
-                <div class="field player3" id="tile 39"></div>
+                <div class="field player4" id="tile 39"></div>
 
             }
             else
             {
 
-                <div class="field player3" id="r @i"></div>
+                <div class="field player4" id="r @i"></div>
             }
         }
         @for (int i = 38; i >= 33; i--)
@@ -474,7 +473,7 @@
             {
                 for (int j = 0; j < Model.PlayerList.Count; j++)
                 {
-                    if (Model.PlayerList[j].Color == "Yellow")
+                    if (Model.PlayerList[j].Color == "Blue")
                     {
                         if (Model.PlayerList[j].Piece[i - 1].State == 0)
                         {
@@ -506,7 +505,7 @@
             {
                 for (int j = 0; j < Model.PlayerList.Count; j++)
                 {
-                    if (Model.PlayerList[j].Color == "Blue")
+                    if (Model.PlayerList[j].Color == "Yellow")
                     {
                         if (Model.PlayerList[j].Piece[i - 1].State == 0)
                         {
