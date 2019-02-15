@@ -411,7 +411,7 @@ input[type=text], select, textarea {
 
     #listofallgameIDsContainer {
         margin: auto;
-        width: 40%;
+        width: 60%;
         height: auto;
         overflow: auto;
     }
