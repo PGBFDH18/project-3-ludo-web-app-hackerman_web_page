@@ -195,3 +195,29 @@ html{
     background: orange;
   }
 
+.button {
+    background-color: #048633;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 200px;
+}
+
+.button:disabled {
+    opacity: 0.6;
+}
+
+input[type=text], select, textarea {
+    width: 200px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-right: 10px;
+}
