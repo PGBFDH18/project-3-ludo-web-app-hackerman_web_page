@@ -17,23 +17,52 @@
         <div class="diceDot" id="rightLower"></div>
     </div>
     <div>
-        <form action="rolldice" method="get">
-            <input type="submit" class="button" value="Roll Dice" />
+        @if (Model.DiceThrow == 0)
+        {
+            <form action="rolldice" method="get">
+                <input type="submit" class="button" value="Roll Dice" />
 
-        </form>
+            </form>
+
+        }
+        else
+        {
+            <form action="rolldice" method="get">
+                <input type="submit" class="button" value="Roll Dice" disabled />
+
+            </form>
+        }
     </div>
     <div>
-        <form action="movepiece" method="get">
-            <input asp-for="MovePiece.PlayerId" type="hidden" />
-            <input asp-for="DiceThrow" type="hidden" />
-            <select asp-for="MovePiece.PieceId" id="playercolor">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            <input id="movePiece" type="submit" class="button" value="Move Piece" />
-        </form>
+        @if (Model.DiceThrow != 0)
+        {
+
+            <form action="movepiece" method="get">
+                <input asp-for="MovePiece.PlayerId" type="hidden" />
+                <input asp-for="DiceThrow" type="hidden" />
+                <select asp-for="MovePiece.PieceId" id="playercolor">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <input id="movePiece" type="submit" class="button" value="Move Piece" />
+            </form>
+        }
+        else
+        {
+            <form action="movepiece" method="get">
+                <input asp-for="MovePiece.PlayerId" type="hidden" />
+                <input asp-for="DiceThrow" type="hidden" />
+                <select asp-for="MovePiece.PieceId" id="playercolor">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <input id="movePiece" type="submit" class="button" value="Move Piece" disabled/>
+            </form>
+        }
     </div>
 </div>
 
