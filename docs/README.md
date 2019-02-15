@@ -40,13 +40,6 @@ https://ludewebapp.azurewebsites.net/
 ---|---|---
 [Olof Olsson](https://github.com/olssonolof) | [Andreas Stanggren](https://github.com/stanggren) | [Alexander Glandberger](https://github.com/stanggren)
 
-
-
-
-[![Sindre Sorhus](https://github.com/sindresorhus.png?size=130)](https://sindresorhus.com) | [![Mario Nebl](https://github.com/marionebl.png?size=130)](https://github.com/marionebl) | [![Pierre Vanduynslager](https://github.com/pvdlg.png?size=130)](https://github.com/pvdlg)
----|---|---
-[Sindre Sorhus](https://sindresorhus.com) | [Mario Nebl](https://github.com/marionebl) | [Pierre Vanduynslager](https://github.com/pvdlg)
-
 ## License
 
 MIT 
