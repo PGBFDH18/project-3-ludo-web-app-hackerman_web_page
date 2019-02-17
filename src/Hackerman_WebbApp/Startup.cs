@@ -28,7 +28,7 @@ namespace Hackerman_WebbApp
 
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
-                .WriteTo.Seq("http://localhost:5341/")
+                .WriteTo.Seq("http://85.227.237.62:63341/")
                 .CreateLogger();
 
             Log.Information("Starting Up");
