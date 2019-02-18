@@ -28,7 +28,7 @@ else
         <div>
             @if (Model.DiceThrow == 0)
             {
-            <form action="rolldice" method="get">
+            <form action="rolldice">
                 <input type="submit" class="button" value="Roll Dice" />
                 <input asp-for="MovePiece.PlayerId" type="hidden" />
                 <input asp-for="DiceThrow" type="hidden" />
@@ -40,7 +40,7 @@ else
             }
             else
             {
-                <form action="movepiece" method="get">
+                <form action="movepiece">
                     <input id="movePiece" type="submit" class="button" value="Move Piece" />
                     <input asp-for="MovePiece.PlayerId" type="hidden" />
                     <input asp-for="DiceThrow" type="hidden" />

@@ -79,18 +79,6 @@ namespace Hackerman_WebbApp.Controllers
             return View(output);
         }
 
-        [HttpGet("gameinfo")]
-        public async Task<GameModel> GameInfo()
-        {
-            var gameId = HttpContext.Session.GetInt32("game");
-
-            var response = new RestRequest($"api/ludo/{gameId}", Method.GET);
-            var restResponse = await client.ExecuteTaskAsync(response);
-            GameModel output = JsonConvert.DeserializeObject<GameModel>(restResponse.Content);
-
-            return output;
-        }
-
         [HttpGet("gameboard")]
         public async Task<IActionResult> Gameboard()
         {
@@ -145,19 +133,6 @@ namespace Hackerman_WebbApp.Controllers
             ModifyPlayerStartPosition.SetStartPosition(output);
 
             return View("Gameboard", output);
-        }
-
-        [HttpGet("getplayers/{gameId}/players")]
-        public async Task<IActionResult> GetPlayers()
-        {
-            GameModel output = new GameModel();
-            var gameId = HttpContext.Session.GetInt32("game");
-
-            var response = new RestRequest($"api/ludo/{gameId}/players", Method.GET);
-            var restResponse = await client.ExecuteTaskAsync(response);
-            output.Player = JsonConvert.DeserializeObject<Player>(restResponse.Content);
-
-            return Ok();
         }
 
         [HttpPost("joingame")]
