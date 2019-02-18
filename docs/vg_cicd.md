@@ -1,8 +1,10 @@
 # Azure Devops documentation
 
-Vi har använt Azure Devops för både CI/CD. 
-Vi har en egen buildpipeline för Api:et och en för Webappen. Samma med releasepipelinen.
-Själva hostingen för både api:et och websidan har vi på Azures molntjänst.
+We have used Azure Devops for both CI/CD.
+
+We have our own build pipeline for the Api and another one for the web app. It's the same with the release pipelines.
+
+We use Azures cloud services to host both the Api and the web app online.
 
 ![Dashboard](images/devopsoverview.PNG)
 
