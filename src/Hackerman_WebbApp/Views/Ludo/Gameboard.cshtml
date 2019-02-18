@@ -9,7 +9,7 @@
 }
 @if (Model.Winner != null)
 {
-    <h1 style="text-align:center">@Model.Winner.Name WON THE FUCKING GAME!</h1>
+    <h1 style="text-align:center">@Model.Winner.Name WON THE GAME!</h1>
 }
 else
 {
@@ -33,7 +33,7 @@ else
                 <input asp-for="MovePiece.PlayerId" type="hidden" />
                 <input asp-for="DiceThrow" type="hidden" />
                 <select asp-for="MovePiece.PieceId" id="playercolor">
-                    <option value="1">Please roll dice mofo!</option>
+                    <option value="1">Please roll the dice!</option>
                 </select>
             </form>
 
