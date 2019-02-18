@@ -115,7 +115,7 @@ namespace Hackerman_WebbApp.Controllers
 
             GameModel output = await GetGameInfo.GetGame(client, (int)gameId);
             output.MovePiece = new MovePiece();
-            output.WhosTurn = new PlayerCounter();
+            output.WhosTurn = counter;
             output.MovePiece.PlayerId = counter.WhosTurn;
 
             output.Player = await GetCurrentPlayer.GetPlayer(client, (int)gameId, counter);
@@ -149,7 +149,7 @@ namespace Hackerman_WebbApp.Controllers
             var restResponse = await client.ExecuteTaskAsync(response);
             GameModel output = JsonConvert.DeserializeObject<GameModel>(restResponse.Content);
 
-            output.WhosTurn = new PlayerCounter();
+            output.WhosTurn = counter;
 
             output.Player = await GetCurrentPlayer.GetPlayer(client, gameId, counter);
 
