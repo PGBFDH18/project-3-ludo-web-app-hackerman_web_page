@@ -130,6 +130,10 @@ namespace Hackerman_WebbApp.Controllers
 
             output.Player = output.PlayerList[counter.WhosTurn];
             output.Winner = await GetWinner.GetPlayer(client, (int)gameId);
+            if (output.Winner != null)
+            {
+                Log.Information($"{output.Winner.Name} won the game: {gameId}! (IP: {HttpContext.Connection.RemoteIpAddress.ToString()})");
+            }
             ModifyPlayerStartPosition.SetStartPosition(output);
 
             return View("Gameboard", output);
