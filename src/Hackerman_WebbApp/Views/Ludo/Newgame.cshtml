@@ -14,22 +14,22 @@
 
 
     <div class="newgamecontainerLeft">
-        <div style="text-align:center">
-            <h2 style="text-align:center">@Localizer["Add player"]</h2>
-            <form action="addplayer" method="post" onsubmit="">
+        <div>
+            <h3>@Localizer["Add player"]</h3>
+            <form action="addplayer" method="post">
                 <div id="playernameandcolor">
                     <input asp-for="Player.Id" type="hidden" value="@Model.Player.Id" />
                     <input id="playername" asp-for="Player.Name" type="text" placeholder="@Localizer["Write name"]" maxlength="15" required pattern="[a-zA-ZäöüßÄÖÜ]+" title="@Localizer["TitlePlayerName"]" />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 </div>
-                <input id="addplayerButton" type="submit" class="button" value="Add player" />
+                <input id="addplayerButton" type="submit" class="button" value="@Localizer["Add player"]" />
             </form>
         </div>
     </div>
 
     <div class="newgamecontainerRight">
-        <h2 style="text-align:center;">Added Players</h2>
-        <div style="text-align:center;">
+        <h3>@Localizer["Added players"]</h3>
+        <div>
             @if (Model.NumberOfPlayers > 0)
             {
                 @foreach (var item in Model.PlayerList)
@@ -46,36 +46,16 @@
         <form action="gameboard">
             @if (Model.PlayerList != null && Model.PlayerList.Count > 1)
             {
-                <input type="submit" class="button" value="Start Game" onclick="clearCache" />
+                <input type="submit" class="button" value="@Localizer["Start game"]" onclick="clearCache" />
             }
             else
             {
-                <input type="submit" class="button" value="Start Game" onclick="clearCache" disabled />
+                <input type="submit" class="button" value="@Localizer["Start game"]" onclick="clearCache" disabled />
             }
         </form>
     </div>
 
 </div>
 
-<div>
 
-    @*@functions {
-
-            public void ListOptions()
-            {
-                List<string> colors = new List<string> { "Red", "Green", "Blue", "Yellow" };
-
-                foreach (var item in colors)
-                {
-                    foreach(var pcolor in Model.PlayerList)
-                    {
-                        if (item == pcolor.Color)
-                        {
-
-                        }
-                    }
-                }
-            }
-        }*@
-</div>
 <script>window.onload = document.getElementById('playername').value = ''</script>

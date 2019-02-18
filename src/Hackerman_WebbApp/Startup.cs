@@ -55,7 +55,7 @@ namespace Hackerman_WebbApp
                     new CultureInfo("sv")
                 };
 
-                opt.DefaultRequestCulture = new RequestCulture("sv");
+                opt.DefaultRequestCulture = new RequestCulture("en");
                 opt.SupportedCultures = supportedCultures;
                 opt.SupportedUICultures = supportedCultures;
             });

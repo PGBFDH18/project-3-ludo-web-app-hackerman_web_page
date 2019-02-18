@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using Serilog;
 using Hackerman_WebbApp.ApiDataRequest;
+using Microsoft.AspNetCore.Localization;
 
 namespace Hackerman_WebbApp.Controllers
 {
@@ -156,6 +157,18 @@ namespace Hackerman_WebbApp.Controllers
             output.PlayerList = await GetPlayerInfo.GetPlayerPosition(gameId, output.NumberOfPlayers, client);
 
             return View("gameboard", output);
+        }
+
+        [HttpPost]
+        public  IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+            CookieRequestCultureProvider.DefaultCookieName,
+            CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+            new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(2) });
+
+            return LocalRedirect(returnUrl);
+
         }
     }
 }

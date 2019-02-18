@@ -120,8 +120,14 @@
   <data name="Add player" xml:space="preserve">
     <value>Lägg till spelare</value>
   </data>
+  <data name="Added players" xml:space="preserve">
+    <value>Tillagda spelare</value>
+  </data>
   <data name="Create a new game" xml:space="preserve">
     <value>Skapa ett nytt spel</value>
+  </data>
+  <data name="Start game" xml:space="preserve">
+    <value>Starta spel</value>
   </data>
   <data name="TitlePlayerName" xml:space="preserve">
     <value>Endast bokstäver är tillåtet</value>

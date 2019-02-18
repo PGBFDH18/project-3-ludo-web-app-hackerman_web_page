@@ -1,6 +1,10 @@
 @model Hackerman_WebbApp.Models.GameModel
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
 @{
-    ViewData["Title"] = "Gameboard";
+    ViewData["Title"] = Localizer["Gameboard"];
 
 }
 
@@ -9,7 +13,7 @@
 }
 @if (Model.Winner != null)
 {
-    <h1 style="text-align:center">@Model.Winner.Name WON THE GAME!</h1>
+    <h1 id="GameWinner">@Model.Winner.Name @Localizer["winner"]</h1>
 }
 else
 {
@@ -29,11 +33,11 @@ else
             @if (Model.DiceThrow == 0)
             {
             <form action="rolldice">
-                <input type="submit" class="button" value="Roll Dice" />
+                <input type="submit" class="button" value="@Localizer["Roll dice"]" />
                 <input asp-for="MovePiece.PlayerId" type="hidden" />
                 <input asp-for="DiceThrow" type="hidden" />
                 <select asp-for="MovePiece.PieceId" id="playercolor">
-                    <option value="1">Please roll the dice!</option>
+                    <option value="" disabled selected>@Localizer["PleaseRoll"]</option>
                 </select>
             </form>
 
@@ -41,7 +45,7 @@ else
             else
             {
                 <form action="movepiece">
-                    <input id="movePiece" type="submit" class="button" value="Move Piece" />
+                    <input id="movePiece" type="submit" class="button" value="@Localizer["Move piece"]" />
                     <input asp-for="MovePiece.PlayerId" type="hidden" />
                     <input asp-for="DiceThrow" type="hidden" />
                     <select asp-for="MovePiece.PieceId" id="playercolor">

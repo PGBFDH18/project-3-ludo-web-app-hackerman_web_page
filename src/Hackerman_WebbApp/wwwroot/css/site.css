@@ -20,11 +20,12 @@ body {
 
 #page-container{
     position: relative;
-    min-height: 90%;
+    min-height: 100%;
 }
 
 #content-wrap{
     padding-bottom: 2.5rem;
+    padding-top: 40px;
 }
 
 .footer {
@@ -33,12 +34,13 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 4rem;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 600px) {
 
     .footer {
-        bottom: 10px;
+        height: 3rem;
     }
 }
 
@@ -57,6 +59,10 @@ body {
     width: 200px;
 }
 
+.button:disabled{
+    opacity: 0.6;
+}
+
 
 input[type=text], select, textarea {
     width: 200px;
@@ -73,7 +79,6 @@ input[type=text], select, textarea {
     font-size: 65px;
     font-weight: bold;
     padding-bottom: 20px;
-    padding-top:30px;
     letter-spacing: 6px;
     margin-bottom:5px;
 }
@@ -126,8 +131,6 @@ input[type=text], select, textarea {
     }
 }
 
-
-
 .BoxHeader {
     text-align: center;
     cursor: pointer;
@@ -178,6 +181,7 @@ input[type=text], select, textarea {
     width: 100%;
     position: relative;
     padding-top: 30px;
+    text-align: center;
 }
 
 @media (max-width: 600px) {
@@ -269,8 +273,6 @@ input[type=text], select, textarea {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-
-
 .displayplayername{
     font-size: 20px;
 }
@@ -280,4 +282,22 @@ input[type=text], select, textarea {
     font-size: 20px;
     margin-right: 10px;
     font-weight: bold;
+}
+
+#selectLanguage{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    z-index: 1000;
+}
+
+#selectLanguage select{
+    width: 65px;
+    margin-left: 5px;
+}
+
+@media (max-width: 600px){
+    #selectLanguage label{
+        display: none;
+    }
 }

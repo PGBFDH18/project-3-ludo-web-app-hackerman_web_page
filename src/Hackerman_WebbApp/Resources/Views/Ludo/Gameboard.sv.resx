@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TitlePlayerName" xml:space="preserve">
-    <value>Only letters are allowed</value>
+  <data name="Gameboard" xml:space="preserve">
+    <value>Spelbrädet</value>
+  </data>
+  <data name="Move piece" xml:space="preserve">
+    <value>Flytta pjäs</value>
+  </data>
+  <data name="PleaseRoll" xml:space="preserve">
+    <value>Kasta tärningen först</value>
+  </data>
+  <data name="Roll dice" xml:space="preserve">
+    <value>Kasta tärningen</value>
+  </data>
+  <data name="winner" xml:space="preserve">
+    <value>VANN SPELET!</value>
   </data>
 </root>
