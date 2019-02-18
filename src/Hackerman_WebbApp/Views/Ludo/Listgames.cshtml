@@ -1,9 +1,13 @@
 ﻿@model Hackerman_WebbApp.Models.GameList
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer  Localizer
+
 @{
     ViewData["Title"] = "ListOfGames";
 }
 
-<h1 id="newgameHeader" class="latoFont">List of Games</h1>
+<h1 id="newgameHeader" class="latoFont">@Localizer["List of games"]</h1>
 <hr id="newgameHeaderLine" />
 
 <div id="listofallgameIDsContainer">
@@ -12,7 +16,7 @@
         <form class="gameForm" method="post" action="joingame">
             <input type="hidden" name="gameId" value="@Model.ListOfAllGames[i]" />
             <label>@Model.ListOfAllGames[i]</label>
-            <button class="button" type="submit">Join game</button>
+            <button class="button" type="submit">@Localizer["Join game"]</button>
         </form>
     }
 </div>

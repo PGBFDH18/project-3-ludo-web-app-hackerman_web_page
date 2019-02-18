@@ -1,9 +1,13 @@
 ﻿@model Hackerman_WebbApp.Models.GameModel
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
 @{
     ViewData["Title"] = "NewGame";
 }
 
-<h1 id="newgameHeader" class="latoFont">Create a new game</h1>
+<h1 id="newgameHeader" class="latoFont">@Localizer["Create a new game"]</h1>
 <hr id="newgameHeaderLine" />
 
 <div class="newgamecontainer">
@@ -11,11 +15,11 @@
 
     <div class="newgamecontainerLeft">
         <div style="text-align:center">
-            <h2 style="text-align:center">Add player</h2>
+            <h2 style="text-align:center">@Localizer["Add player"]</h2>
             <form action="addplayer" method="post" onsubmit="">
                 <div id="playernameandcolor">
                     <input asp-for="Player.Id" type="hidden" value="@Model.Player.Id" />
-                    <input id="playername" asp-for="Player.Name" type="text" placeholder="Write name" maxlength="15" required pattern="[a-zA-ZäöüßÄÖÜ]+" title="Only letters" />
+                    <input id="playername" asp-for="Player.Name" type="text" placeholder="@Localizer["Write name"]" maxlength="15" required pattern="[a-zA-ZäöüßÄÖÜ]+" title="@Localizer["TitlePlayerName"]" />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 </div>
                 <input id="addplayerButton" type="submit" class="button" value="Add player" />
@@ -40,7 +44,7 @@
 
     <div class="newgamecontainerBottom">
         <form action="gameboard">
-            @if (Model.PlayerList !=null && Model.PlayerList.Count > 1)
+            @if (Model.PlayerList != null && Model.PlayerList.Count > 1)
             {
                 <input type="submit" class="button" value="Start Game" onclick="clearCache" />
             }
@@ -74,4 +78,4 @@
             }
         }*@
 </div>
-<script>window.onload=document.getElementById('playername').value = ''</script>
+<script>window.onload = document.getElementById('playername').value = ''</script>
