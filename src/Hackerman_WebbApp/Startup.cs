@@ -27,9 +27,9 @@ namespace Hackerman_WebbApp
             Configuration = configuration;
 
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.Seq("http://85.227.237.62:63341/")
-                .CreateLogger();
+            .MinimumLevel.Debug()
+            .WriteTo.Seq("http://85.227.237.62:63341/")
+            .CreateLogger();
 
             Log.Information("Starting Up");
         }
@@ -64,7 +64,7 @@ namespace Hackerman_WebbApp
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization();
-                
+
             services.AddTransient<IRestClient, RestClient>();
             services.AddSingleton<IPlayerCounter, PlayerCounter>();
             services.AddDistributedMemoryCache();

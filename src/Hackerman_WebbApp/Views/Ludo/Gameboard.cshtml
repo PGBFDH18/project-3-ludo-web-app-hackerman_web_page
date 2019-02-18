@@ -28,25 +28,20 @@ else
         <div>
             @if (Model.DiceThrow == 0)
             {
-                <form action="rolldice" method="get">
-                    <input type="submit" class="button" value="Roll Dice" />
-
-                </form>
+            <form action="rolldice" method="get">
+                <input type="submit" class="button" value="Roll Dice" />
+                <input asp-for="MovePiece.PlayerId" type="hidden" />
+                <input asp-for="DiceThrow" type="hidden" />
+                <select asp-for="MovePiece.PieceId" id="playercolor">
+                    <option value="1">Please roll dice mofo!</option>
+                </select>
+            </form>
 
             }
             else
             {
-                <form action="rolldice" method="get">
-                    <input type="submit" class="button" value="Roll Dice" disabled />
-
-                </form>
-            }
-        </div>
-        <div>
-            @if (Model.DiceThrow != 0)
-            {
-
                 <form action="movepiece" method="get">
+                    <input id="movePiece" type="submit" class="button" value="Move Piece" />
                     <input asp-for="MovePiece.PlayerId" type="hidden" />
                     <input asp-for="DiceThrow" type="hidden" />
                     <select asp-for="MovePiece.PieceId" id="playercolor">
@@ -58,21 +53,9 @@ else
                             }
                         }
                     </select>
-                    <input id="movePiece" type="submit" class="button" value="Move Piece" />
                 </form>
             }
-            else
-            {
-                <form action="movepiece" method="get">
-                    <input asp-for="MovePiece.PlayerId" type="hidden" />
-                    <input asp-for="DiceThrow" type="hidden" />
-                    <select asp-for="MovePiece.PieceId" id="playercolor">
-                        <option value="1">Please roll dice mofo!</option>
-                    </select>
-                    <input id="movePiece" type="submit" class="button" value="Move Piece" disabled />
-                </form>
-            }
-        </div>
+        </div>       
     </div>
 
 
@@ -125,6 +108,30 @@ else
                                 playerPosition = piece.Position - 51;
                             }
                             if (playerPosition == i && !pieceFound && piece.State == 2 && player.Id == 1)
+                            {
+                                string playerId = "brick player" + (player.Id + 1).ToString();
+                                string pieceId = "piece " + piece.PieceId.ToString();
+                                <div class="field player1" id="tile @i">
+                                    <div class="@playerId" id="@pieceId"></div>
+                                </div>
+                                pieceFound = true;
+                            }
+                        }
+                    }
+                }
+                
+                if (Model.PlayerList != null && i==1)
+                {
+                    foreach (var player in Model.PlayerList)
+                    {
+                        foreach (var piece in player.Piece)
+                        {
+                            int playerPosition = piece.Position + player.StartPosition;
+                            if (playerPosition > 52)
+                            {
+                                playerPosition -= 52;
+                            }
+                            if (playerPosition == 13 && !pieceFound && piece.State == 1)
                             {
                                 string playerId = "brick player" + (player.Id + 1).ToString();
                                 string pieceId = "piece " + piece.PieceId.ToString();
@@ -241,6 +248,29 @@ else
                         }
                     }
                 }
+                if (Model.PlayerList != null && i == 1)
+                {
+                    foreach (var player in Model.PlayerList)
+                    {
+                        foreach (var piece in player.Piece)
+                        {
+                            int playerPosition = piece.Position + player.StartPosition;
+                            if (playerPosition > 52)
+                            {
+                                playerPosition -= 52;
+                            }
+                            if (playerPosition == 26 && !pieceFound && piece.State == 1)
+                            {
+                                string playerId = "brick player" + (player.Id + 1).ToString();
+                                string pieceId = "piece " + piece.PieceId.ToString();
+                                <div class="field player2" id="tile @i">
+                                    <div class="@playerId" id="@pieceId"></div>
+                                </div>
+                                pieceFound = true;
+                            }
+                        }
+                    }
+                }
                 if (!pieceFound)
                 {
                     <div class="field player3" id="tile @i"></div>
@@ -341,6 +371,29 @@ else
                         }
                     }
                 }
+                if (Model.PlayerList != null && i == 1)
+                {
+                    foreach (var player in Model.PlayerList)
+                    {
+                        foreach (var piece in player.Piece)
+                        {
+                            int playerPosition = piece.Position + player.StartPosition;
+                            if (playerPosition > 52)
+                            {
+                                playerPosition -= 52;
+                            }
+                            if (playerPosition == 39 && !pieceFound && piece.State == 1)
+                            {
+                                string playerId = "brick player" + (player.Id + 1).ToString();
+                                string pieceId = "piece " + piece.PieceId.ToString();
+                                <div class="field player3" id="tile @i">
+                                    <div class="@playerId" id="@pieceId"></div>
+                                </div>
+                                pieceFound = true;
+                            }
+                        }
+                    }
+                }
                 if (!pieceFound)
                 {
                     <div class="field player4" id="tile @i"></div>
@@ -416,7 +469,7 @@ else
 
             }
 
-            @for (int j = 1; j <= 6; j++)
+            @for (int i = 1; i <= 6; i++)
             {
                 bool pieceFound = false;
                 if (Model.PlayerList != null)
@@ -430,11 +483,34 @@ else
                             {
                                 playerPosition = piece.Position - 51;
                             }
-                            if (playerPosition == j && !pieceFound && piece.State == 2 && player.Id == 0)
+                            if (playerPosition == i && !pieceFound && piece.State == 2 && player.Id == 0)
                             {
                                 string playerId = "brick player" + (player.Id + 1).ToString();
                                 string pieceId = "piece " + piece.PieceId.ToString();
-                                <div class="field player2" id="tile @j">
+                                <div class="field player2" id="tile @i">
+                                    <div class="@playerId" id="@pieceId"></div>
+                                </div>
+                                pieceFound = true;
+                            }
+                        }
+                    }
+                }
+                if (Model.PlayerList != null && i == 1)
+                {
+                    foreach (var player in Model.PlayerList)
+                    {
+                        foreach (var piece in player.Piece)
+                        {
+                            int playerPosition = piece.Position + player.StartPosition;
+                            if (playerPosition > 52)
+                            {
+                                playerPosition -= 52;
+                            }
+                            if (playerPosition == 52 && !pieceFound && piece.State == 1)
+                            {
+                                string playerId = "brick player" + (player.Id + 1).ToString();
+                                string pieceId = "piece " + piece.PieceId.ToString();
+                                <div class="field player2" id="tile @i">
                                     <div class="@playerId" id="@pieceId"></div>
                                 </div>
                                 pieceFound = true;
@@ -444,7 +520,7 @@ else
                 }
                 if (!pieceFound)
                 {
-                    <div class="field player1" id="tile @j"></div>
+                    <div class="field player1" id="tile @i"></div>
                 }
 
             }
