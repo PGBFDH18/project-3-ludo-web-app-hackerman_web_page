@@ -3,10 +3,10 @@
 
 <p align="center">
   <b>Some Links:</b><br>
-  <a href="https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page/blob/Aprove-or-die-2/docs/UserStories.md">User stories</a> |
-  <a href="https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page/blob/Aprove-or-die-2/docs/Diary.md">Diary</a> |
-  <a href="https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page/blob/Aprove-or-die-2/docs/README.md">ReadMe</a> |
-  <a href="https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page/blob/Aprove-or-die-2/src/api/LudoGameApi/ludoapi.yaml">Open Api</a>
+  <a href="UserStories.md">User stories</a> |
+  <a href="Diary.md">Diary</a> |
+  <a href="README.md">ReadMe</a> |
+  <a href="../src/api/LudoGameApi/ludoapi.yaml">Open Api</a>
   <br><br>
   <img src="http://bestanimations.com/Games/Dice/rolling-dice-gif-7.gif" width="200"/>
 </p>
