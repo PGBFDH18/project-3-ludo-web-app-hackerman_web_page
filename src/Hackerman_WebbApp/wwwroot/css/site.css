@@ -45,6 +45,25 @@ body {
     }
 }
 
+@-moz-document url-prefix() {
+    .footer {
+        position: fixed;
+        bottom: 15px;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 4rem;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+
+        .footer {
+            height: 3rem;
+            bottom: 5px;
+        }
+    }
+}
+
 
 .button {
     background-color: #048633;
