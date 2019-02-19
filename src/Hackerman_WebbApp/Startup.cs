@@ -52,7 +52,8 @@ namespace Hackerman_WebbApp
                 var supportedCultures = new List<CultureInfo>
                 {
                     new CultureInfo("en"),
-                    new CultureInfo("sv")
+                    new CultureInfo("sv"),
+                    new CultureInfo("da")
                 };
 
                 opt.DefaultRequestCulture = new RequestCulture("en");
@@ -90,7 +91,8 @@ namespace Hackerman_WebbApp
             var supportedCultures = new[]
             {
                 new CultureInfo("en"),
-                new CultureInfo("sv")
+                new CultureInfo("sv"),
+                new CultureInfo("da")
             };
 
             app.UseRequestLocalization(new RequestLocalizationOptions

@@ -117,31 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Created by" xml:space="preserve">
-    <value>Skapat av</value>
-  </data>
-  <data name="CreateJoin" xml:space="preserve">
-    <value>Skapa eller ladda spel</value>
-  </data>
-  <data name="Hackerman Ludo" xml:space="preserve">
-    <value>Hackerman Fia</value>
-  </data>
-  <data name="Join Game" xml:space="preserve">
-    <value>Ladda spel</value>
-  </data>
-  <data name="LudoAppDescription" xml:space="preserve">
-    <value>Spelet körs på en webbapplikation vilket gör det möjligt att spela med upp till 3 vänner på olika enheter samtidigt.</value>
-  </data>
-  <data name="LudoDescription" xml:space="preserve">
-    <value>Fia är ett strategiskt brädspel för två till fyra spelare, där spelarena flyttar sina pjäser från start till mål med hjälp av en tärning</value>
-  </data>
-  <data name="New Game" xml:space="preserve">
-    <value>Nytt spel</value>
-  </data>
-  <data name="Play" xml:space="preserve">
-    <value>Spela</value>
-  </data>
-  <data name="Rules" xml:space="preserve">
-    <value>Regler</value>
+  <data name="See our github repo here" xml:space="preserve">
+    <value>Her finder du vores githubrepo</value>
   </data>
 </root>
