@@ -18,9 +18,10 @@
             <h3>@Localizer["Add player"]</h3>
             <form action="addplayer" method="post">
                 <div id="playernameandcolor">
-                    <input asp-for="Player.Id" type="hidden" value="@Model.Player.Id" />
-                    <input id="playername" asp-for="Player.Name" type="text" placeholder="@Localizer["Write name"]" maxlength="15" required pattern="[a-zA-ZäöüßÄÖÜ]+" title="@Localizer["TitlePlayerName"]" />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Player.Id" type="hidden" value="@Model.Player.Id" />
+                    <input id="playername" asp-for="Player.Name" type="text" placeholder="@Localizer["Write name"]"/><br />
+                    <span asp-validation-for="Player.Name"></span>
                 </div>
                 <input id="addplayerButton" type="submit" class="button" value="@Localizer["Add player"]" />
             </form>

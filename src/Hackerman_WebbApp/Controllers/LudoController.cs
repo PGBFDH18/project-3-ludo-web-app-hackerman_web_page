@@ -57,15 +57,22 @@ namespace Hackerman_WebbApp.Controllers
         {
             PlayerColor.SetPlayerColor(player);
             var gameId = HttpContext.Session.GetInt32("game");
-
-            await GetAddPlayer.AddPlayer(client, (int)gameId, player);
-            GameModel output = await GetGameInfo.GetGame(client, (int)gameId);
+            GameModel output = new GameModel();
+            if (ModelState.IsValid)
+            {
+                await GetAddPlayer.AddPlayer(client, (int)gameId, player);
+                output = await GetGameInfo.GetGame(client, (int)gameId);
+                output.Player = new Player() { Id = player.Id + 1 };
+            }
+            else
+            {
+                output = await GetGameInfo.GetGame(client, (int)gameId);
+                output.Player = new Player() { Id = player.Id };
+            }
             Log.Information($"GameID: {gameId} created a player named: {player.Name} with the color: {player.Color}(IP: {HttpContext.Connection.RemoteIpAddress.ToString()})");
 
             output.PlayerList = await GetPlayerInfo.GetPlayerPosition((int)gameId, output.NumberOfPlayers, client);
-            output.Player = new Player() { Id = player.Id + 1 };
             return View("Newgame", output);
-
         }
 
         [HttpGet("listgames")]
