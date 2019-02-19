@@ -56,7 +56,6 @@ namespace Hackerman_WebbApp.Controllers
         public async Task<IActionResult> AddPlayer(Player player)
         {
             PlayerColor.SetPlayerColor(player);
-            HttpContext.Session.SetString("name", player.Name);
             var gameId = HttpContext.Session.GetInt32("game");
 
             await GetAddPlayer.AddPlayer(client, (int)gameId, player);
