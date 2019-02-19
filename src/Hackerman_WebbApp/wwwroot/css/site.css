@@ -97,7 +97,7 @@ input[type=text], select, textarea {
 
 
 #HeaderLine {
-    color: #7f7f7f;
+    color: #323232;
     border: 1px solid;
     margin-top: 5px;
 }
@@ -279,8 +279,16 @@ input[type=text], select, textarea {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.displayplayername{
+.displayplayername {
     font-size: 20px;
+    padding-top: 12px;
+}
+
+@media (max-width: 600px) {
+    .displayplayername {
+        font-size: 20px;
+        padding-top: 10px;
+    }
 }
 
 
