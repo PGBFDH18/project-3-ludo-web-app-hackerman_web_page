@@ -6,16 +6,19 @@
 
 html{
     background-color: none;
+
   }
 
 
-  .currentPlayer{
+.currentPlayer {
     font-size: 300%;
-  }
+    font-family: 'Lato', sans-serif;
+}
 
 @media (max-width: 600px) {
     .currentPlayer {
         font-size: 300%;
+        font-family: 'Lato', sans-serif;
     }
 }
   
