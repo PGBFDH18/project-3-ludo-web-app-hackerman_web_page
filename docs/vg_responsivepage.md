@@ -8,18 +8,12 @@ Elements are responsive to horizontally aligned elements. These elements can als
 
 
 
-![Imgur](https://i.imgur.com/0s3ilBx.png)
-
-*Index page*
+![Index1](images/ResponsiveIndex1.png)
 
 
-![Imgur](https://i.imgur.com/dO2PNDs.png)
-
-*Index page with clickable element*
+![Index2](images/ResponsiveIndex2.png)
 
 
-![Imgur](https://i.imgur.com/l9wDrr8.png)
-
-*Newgame page with input element*
+![Index2](images/ResponsiveNewGame.png)
 
 
