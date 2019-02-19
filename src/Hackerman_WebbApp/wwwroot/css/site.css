@@ -29,8 +29,8 @@ body {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0px;
+  position: fixed;
+  bottom: 15px;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 4rem;
@@ -41,6 +41,7 @@ body {
 
     .footer {
         height: 3rem;
+        bottom: 5px;
     }
 }
 
@@ -300,4 +301,11 @@ input[type=text], select, textarea {
     #selectLanguage label{
         display: none;
     }
+}
+
+.clearer{
+    height: 1px;
+    overflow: hidden;
+    clear: both;
+    margin-top: -1px;
 }

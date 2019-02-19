@@ -133,6 +133,12 @@ html{
     position: absolute;
   }
 
+  @media (max-width: 600px){
+      .board{
+          transform: scale(0.7);
+      }
+  }
+
 .brick {
     margin: 9px;
     width: 40px;

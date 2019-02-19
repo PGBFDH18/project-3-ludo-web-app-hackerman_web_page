@@ -160,15 +160,15 @@ namespace Hackerman_WebbApp.Controllers
         }
 
         [HttpPost]
-        public  IActionResult SetLanguage(string culture, string returnUrl)
+        public  IActionResult SetLanguage(string culture)
         {
             Response.Cookies.Append(
             CookieRequestCultureProvider.DefaultCookieName,
             CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
             new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(2) });
 
-            return LocalRedirect(returnUrl);
-
+            //  return LocalRedirect(returnUrl);
+            return View();
         }
     }
 }
