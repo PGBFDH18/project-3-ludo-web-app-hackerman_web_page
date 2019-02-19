@@ -7,6 +7,8 @@
     ViewData["Title"] = "ListOfGames";
 }
 
+@await Html.PartialAsync("_SelectLanguagePartial")
+
 <h1 id="newgameHeader" class="latoFont">@Localizer["List of games"]</h1>
 <hr id="newgameHeaderLine" />
 
