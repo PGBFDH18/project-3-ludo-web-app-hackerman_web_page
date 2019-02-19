@@ -97,7 +97,7 @@ namespace Hackerman_WebbApp
 
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
-                DefaultRequestCulture = new RequestCulture("sv"),
+                DefaultRequestCulture = new RequestCulture("en"),
                 SupportedUICultures = supportedCultures,
                 SupportedCultures = supportedCultures
             });

@@ -5,14 +5,8 @@
 
 
 html{
-    background-color: lightgray;
+    background-color: none;
   }
-
-@media (max-width: 600px) {
-    html {
-        background-color: lightgray;
-    }
-}
 
 
   .currentPlayer{
@@ -35,6 +29,14 @@ html{
     position: absolute;
     top: 200px;
     left: 50px;
+  }
+
+  @media(max-width: 600px){
+      .dice{
+          position: static;
+          top: auto;
+          left: auto
+      }
   }
 
   
@@ -100,6 +102,17 @@ html{
     position:absolute;
   }
 
+  @media(max-width: 600px){
+    .gameInfo {
+        width: auto;
+        height: auto;
+        top: auto;
+        left: auto;
+        position: static;
+        padding: 10px;
+    }
+  }
+
   
   .goal{
     width:180px;
@@ -129,14 +142,20 @@ html{
     height:860px;
     padding:20px;
     background-color: antiquewhite;
-    border: 2px solid black;
     position: absolute;
   }
 
   @media (max-width: 600px){
-      .board{
-          transform: scale(0.7);
-      }
+    .board {
+        transform: scale(0.39);
+        top: auto;
+        left: auto;
+        width: 0;
+        height: auto;
+        padding: 20px;
+        background-color: antiquewhite;
+        position: static;
+    }
   }
 
 .brick {
