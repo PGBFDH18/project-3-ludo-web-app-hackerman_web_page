@@ -15,12 +15,6 @@ html{
     font-family: 'Lato', sans-serif;
 }
 
-@media (max-width: 600px) {
-    .currentPlayer {
-        font-size: 300%;
-        font-family: 'Lato', sans-serif;
-    }
-}
   
   .dice{
     width: 56px; 
@@ -36,9 +30,11 @@ html{
 
   @media(max-width: 600px){
       .dice{
-          position: static;
-          top: auto;
-          left: auto
+          position: absolute;
+          top: 70px;
+          right: 40px;
+          left: auto;
+          transform: scale(1.3);
       }
   }
 
