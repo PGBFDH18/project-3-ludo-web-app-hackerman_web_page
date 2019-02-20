@@ -17,7 +17,7 @@ Ludo game school project for Teknikhögskolan.
 ## How to play
 Game is published. <br>
 URL: https://ludewebapp.azurewebsites.net/ <br>
-[![Manual](https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page/blob/Aprove-or-die-2/docs/Manual.md)]
+[Manual](https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page/blob/Aprove-or-die-2/docs/Manual.md)
 
 ## Languages available
 **English <br>
