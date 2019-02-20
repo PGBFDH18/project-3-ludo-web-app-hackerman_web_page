@@ -112,12 +112,14 @@ html{
     }
   }
 
-  @media(max-width: 1024px){
-      .gameInfo{
-          left: 750px;
-          width: 250px;
-      }
-  }
+@media only screen
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) {
+    .gameInfo {
+        left: 750px;
+        width: 250px;
+    }
+}
 
   
   .goal{
@@ -164,7 +166,9 @@ html{
     }
   }
 
-  @media (max-width: 1024px){
+@media only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) {
     .board {
         transform: scale(0.8);
         top: auto;
@@ -172,7 +176,7 @@ html{
         height: auto;
         width: auto;
     }
-  }
+}
 
 .brick {
     margin: 9px;
