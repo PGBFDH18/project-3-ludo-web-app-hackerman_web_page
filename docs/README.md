@@ -33,6 +33,7 @@ https://ludewebapp.azurewebsites.net/
 ## Tech/framework used
 <b>Built with</b>
 - [.Net Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+- [Wyam - static content toolkit](https://wyam.io)
 
 #### Team
 
