@@ -21,8 +21,8 @@ URL: https://ludewebapp.azurewebsites.net/ <br>
 
 ## Languages available
 **English <br>
-Swedish
-**
+Swedish <br>
+Danish**
 
 
 ## Install
