@@ -112,6 +112,13 @@ html{
     }
   }
 
+  @media(max-width: 1024px){
+      .gameInfo{
+          left: 750px;
+          width: 250px;
+      }
+  }
+
   
   .goal{
     width:180px;
@@ -154,6 +161,16 @@ html{
         padding: 20px;
         background-color: antiquewhite;
         position: static;
+    }
+  }
+
+  @media (max-width: 1024px){
+    .board {
+        transform: scale(0.8);
+        top: auto;
+        left: auto;
+        height: auto;
+        width: auto;
     }
   }
 
