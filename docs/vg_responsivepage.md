@@ -11,3 +11,5 @@ Elements are responsive to horizontally aligned elements. These elements can als
 <img src="images/ResponsiveIndex2.png" width="300"/>
 
 <img src="images/ResponsiveNewGame.png" width="300"/>
+
+<img src="images/ResponsiveGameboard.png" width="300"/>
