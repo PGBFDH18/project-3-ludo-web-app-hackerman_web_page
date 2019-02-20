@@ -1,0 +1,62 @@
+﻿@model Hackerman_WebbApp.Models.GameModel
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = "NewGame";
+}
+
+<h1 id="newgameHeader" class="latoFont">@Localizer["Create a new game"]</h1>
+<hr id="newgameHeaderLine" />
+
+<div class="newgamecontainer">
+
+
+    <div class="newgamecontainerLeft">
+        <div>
+            <h3>@Localizer["Add player"]</h3>
+            <form action="addplayer" method="post">
+                <div id="playernameandcolor">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Player.Id" type="hidden" value="@Model.Player.Id" />
+                    <input id="playername" asp-for="Player.Name" type="text" placeholder="@Localizer["Write name"]"/><br />
+                    <span asp-validation-for="Player.Name"></span>
+                </div>
+                <input id="addplayerButton" type="submit" class="button" value="@Localizer["Add player"]" />
+            </form>
+        </div>
+    </div>
+
+    <div class="newgamecontainerRight">
+        <h3>@Localizer["Added players"]</h3>
+        <div>
+            @if (Model.NumberOfPlayers > 0)
+            {
+                @foreach (var item in Model.PlayerList)
+                {
+                    <div style="border-color: @item.Color" class="displayplayercontainer">
+                        <div class="displayplayername" >@item.Name</div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="newgamecontainerBottom">
+        <form action="gameboard">
+            @if (Model.PlayerList != null && Model.PlayerList.Count > 1)
+            {
+                <input type="submit" class="button" value="@Localizer["Start game"]" onclick="clearCache" />
+            }
+            else
+            {
+                <input type="submit" class="button" value="@Localizer["Start game"]" onclick="clearCache" disabled />
+            }
+        </form>
+    </div>
+
+</div>
+
+
+<script>window.onload = document.getElementById('playername').value = ''</script>

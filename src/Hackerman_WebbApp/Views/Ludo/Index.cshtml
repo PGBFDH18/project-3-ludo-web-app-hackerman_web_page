@@ -1,0 +1,70 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer  Localizer
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@await Html.PartialAsync("_SelectLanguagePartial")
+
+<div class="container center-block">
+    <h1 id="indexHeader" class="latoFont">@Localizer["Hackerman Ludo"]</h1>
+
+    <hr id="HeaderLine" />
+    <h2 id="SubHeader">@Localizer["CreateJoin"]</h2>
+
+
+    <div class="MenuBox">
+        <h3 class="BoxHeader">@Localizer["Play"]</h3>
+        <div class="dropcontent">
+            <div id="CreateLoadAlign">
+                <form action="newgame" method="post">
+                    <input class="button" type="submit" value="@Localizer["New Game"]" />
+                </form>
+                <form action="listgames" method="get">
+                    <input class="button" type="submit" value="@Localizer["Join Game"]" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="MenuBox">
+        <h3 class="BoxHeader">@Localizer["Rules"]</h3>
+        <div class="dropcontent">
+            <p>@Localizer["LudoDescription"]</p>
+            <p>@Localizer["LudoAppDescription"]</p>
+        </div>
+    </div>
+
+    <div class="MenuBox">
+        <h3 class="BoxHeader">@Localizer["Created by"]</h3>
+        <div class="dropcontent">
+            <p>Victor Ronnerstedt</p>
+            <p>Dennis Hammarstrand</p>
+            <p>Olof Olsson</p>
+            <p>Alexander Glandberger</p>
+            <p>Nicolas Hassiakis</p>
+            <p>Andreas Stanggren</p>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    var coll = document.getElementsByClassName("BoxHeader");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>

@@ -1,0 +1,345 @@
+﻿
+html {
+    font-size: 14px;
+    background-color: #fafafa;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (max-width: 600px) {
+
+    html {
+        font-size: 20px;
+    }
+
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+#page-container{
+    position: relative;
+    min-height: 100%;
+}
+
+#content-wrap{
+    padding-bottom: 2.5rem;
+    padding-top: 40px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 4rem;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+
+    .footer {
+        height: 3rem;
+        bottom: 5px;
+    }
+}
+
+@-moz-document url-prefix() {
+    .footer {
+        position: fixed;
+        bottom: 15px;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 4rem;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+
+        .footer {
+            height: 3rem;
+            bottom: 5px;
+        }
+    }
+}
+
+
+.button {
+    background-color: #048633;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 200px;
+}
+
+.button:disabled{
+    opacity: 0.6;
+}
+
+
+input[type=text], select, textarea {
+    width: 200px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+
+#indexHeader {
+    text-align: center;
+    font-size: 65px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    letter-spacing: 6px;
+    margin-bottom:5px;
+}
+
+@media (max-width: 600px) {
+
+    #indexHeader {
+        font-size: 20px;
+    }
+}
+
+.container{
+    width: 70%;
+    margin: auto;
+}
+
+
+#HeaderLine {
+    color: #323232;
+    border: 1px solid;
+    margin-top: 5px;
+}
+
+#SubHeader {
+    text-align: center;
+    padding: 40px;
+    padding-top: 14px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-size: 30px;
+}
+
+@media (max-width: 600px) {
+
+    #SubHeader {
+        font-size: 17px;
+    }
+}
+
+.MenuBox {
+    width: 33%;
+    float: left;
+}
+
+@media (max-width: 600px) {
+
+    .MenuBox {
+        width: 100%;
+        float: none;
+    }
+}
+
+.BoxHeader {
+    text-align: center;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+
+.BoxHeader h3{
+    width: auto;
+}
+
+
+#CreateLoadAlign{
+    text-align:center;
+}
+
+
+.active, .RulesHeader:hover  {
+    color: #7db7c6;
+    cursor: default;
+}
+
+
+.dropcontent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.dropcontent p{
+    text-align: center;
+}
+
+
+
+.byLine{
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+
+    .byLine {
+        font-size: 14px;
+    }
+}
+
+.newgamecontainer {
+    width: 100%;
+    position: relative;
+    padding-top: 30px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+
+    .newgamecontainer {
+        width: 100%;
+        position: relative;
+        padding-top: 30px;
+    }
+}
+
+.newgamecontainerLeft{
+    width: 50%;
+    float: left;
+}
+
+@media (max-width: 600px) {
+
+    .newgamecontainerLeft {
+        width: 100%;
+    }
+}
+
+.newgamecontainerRight {
+    width: 50%;
+    float: left;
+}
+
+@media (max-width: 600px) {
+
+    .newgamecontainerRight {
+        width: 100%;
+    }
+}
+
+.newgamecontainerBottom {
+    width: 100%;
+    text-align:center;
+    clear: both;
+}
+
+
+#newgameHeader {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 6px;
+}
+
+@media (max-width: 600px) {
+
+    #newgameHeader {
+        font-size: 20px;
+    }
+}
+
+#newgameHeaderLine {
+    color: black;
+    border: 1px inset;
+    margin-top: 5px;
+    text-align: center;
+    width: 50%;
+}
+
+
+#playernameandcolor{
+    padding: 0px 10px 0px 10px ;
+}
+
+
+#listofallgameIDsContainer {
+    margin: auto;
+    width: 40%;
+    height: auto;
+    overflow: auto;
+
+}
+
+@media (max-width: 600px){
+    #listofallgameIDsContainer{
+        width: 60%;
+    }
+}
+
+
+.displayplayercontainer {
+    width: 30%;
+    height: 6%;
+    margin: auto;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 20px;
+    padding: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.displayplayername {
+    font-size: 20px;
+    padding-top: 12px;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .displayplayername {
+        font-size: 20px;
+        padding-top: 10px;
+        font-weight: bold;
+    }
+}
+
+
+.gameForm label {
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#selectLanguage{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    z-index: 1000;
+}
+
+#selectLanguage select{
+    width: 65px;
+    margin-left: 5px;
+}
+
+@media (max-width: 600px){
+    #selectLanguage label{
+        display: none;
+    }
+}
+
+.clearer{
+    height: 1px;
+    overflow: hidden;
+    clear: both;
+    margin-top: -1px;
+}

@@ -1,0 +1,32 @@
+﻿<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script language="javascript" src="~/js/site.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>@ViewData["Title"] - Hackerman_WebbApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="SHORTCUT ICON" href="~/dice.ico" />
+</head>
+
+<body>
+    @using Microsoft.AspNetCore.Mvc.Localization
+    @inject IViewLocalizer Localizer
+
+  
+    <div id="page-container">
+        <div id="content-wrap">
+            @RenderBody()
+            <div class="clearer"></div>
+        </div>
+        <footer class="footer">
+            <div class="byLine">
+                <h4>© 2019 Hackerman Studios</h4>
+                <p><a href="https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page">@Localizer["See our github repo here"] <i class="fab fa-github"></i></a></p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
