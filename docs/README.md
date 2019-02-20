@@ -17,12 +17,12 @@ Ludo game school project for Teknikhögskolan.
 ## How to play
 Game is published. <br>
 URL: https://ludewebapp.azurewebsites.net/ <br>
-[![Manual](https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page/blob/Aprove-or-die-2/docs/Manual.md)]
+[Manual](https://github.com/PGBFDH18/project-3-ludo-web-app-hackerman_web_page/blob/Aprove-or-die-2/docs/Manual.md)
 
 ## Languages available
 **English <br>
-Swedish
-**
+Swedish <br>
+Danish**
 
 
 ## Install
@@ -33,6 +33,7 @@ https://ludewebapp.azurewebsites.net/
 ## Tech/framework used
 <b>Built with</b>
 - [.Net Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+- [Wyam - static content toolkit](https://wyam.io)
 
 #### Team
 
